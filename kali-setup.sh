@@ -267,15 +267,15 @@ cd /opt/maryam
 pip install maryam
 
 echo "\n\n\n Installing - KeepWannabe/Remot3d \n"
-git clone https://github.com/KeepWannabe/Remot3d.git /opt/Remot3d
-cd /opt/Remot3d
+git clone https://github.com/KeepWannabe/Remot3d.git /opt/remot3d
+cd /opt/remot3d
 chmod +x setup.sh
 ./setup.sh
 chmod +x Remot3d.sh
 
 echo "\n\n\n Installing - byt3bl33d3r/SILENTTRINITY \n"
-git clone https://github.com/byt3bl33d3r/SILENTTRINITY.git /opt/SilentTrinity
-/opt/SilentTrinity
+git clone https://github.com/byt3bl33d3r/SILENTTRINITY.git /opt/silenttrinity
+/opt/silenttrinity
 pip3 install -r requirements.txt
 pip3 install --user pipenv && pipenv install
 
@@ -291,25 +291,25 @@ chmod +x install.sh
 ./install.sh
 
 echo "\n\n\n Installing - j3ssie/Osmedeus \n"
-git clone https://github.com/j3ssie/Osmedeus.git /opt/Osmedeus
-cd /opt/Osmedeus/
+git clone https://github.com/j3ssie/Osmedeus.git /opt/osmedeus
+cd /opt/osmedeus/
 ./install.sh
 
 echo "\n\n\n Installing - 0xinfection/tidos-framework \n"
 # cd /opt/Osmedeus && python3 Osmedeus.py
-git clone https://github.com/0xinfection/tidos-framework.git /opt/TIDoS-Framework
-cd /opt/TIDoS-Framework
+git clone https://github.com/0xinfection/tidos-framework.git /opt/tidos-framework
+cd /opt/tidos-framework
 apt -y install libncurses5 libxml2 nmap tcpdump libexiv2-dev buildssential python3-pip libmariadbclient18 libmysqlclient-dev tor konsole
 pip3 install -r requirements.txt
 
 echo "\n\n\n Installing - Yukinoshita47/Yuki-Chan-The-Auto-Pentest \n"
-git clone https://github.com/Yukinoshita47/Yuki-Chan-The-Auto-Pentest.git /opt/Yuki-Chan-The-Auto-Pentest
-cd /opt/Yuki-Chan-The-Auto-Pentest
+git clone https://github.com/Yukinoshita47/Yuki-Chan-The-Auto-Pentest.git /opt/yuki-chan
+cd /opt/yuki-chan
 chmod 777 wafninja joomscan install-perl-module.sh yuki.sh
 chmod 777 Module/WhatWeb/whatweb
 pip install -r requirements.txt
 ./install-perl-module.sh
-  
+
 echo "\n\n\n Installing - securethelogs/Exnoscan \n"  
 git clone https://github.com/securethelogs/Exnoscan.git /opt/exnoscan
 cd /opt/exnoscan
@@ -340,20 +340,20 @@ git clone https://github.com/projectdiscovery/nuclei.git /opt/nuclei
 go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 
 echo "\n\n\n Installing - D4Vinci/Cr3dOv3r \n"
-git clone https://github.com/D4Vinci/Cr3dOv3r.git /opt/Cr3dOv3r
-cd /opt/Cr3dOv3r
+git clone https://github.com/D4Vinci/Cr3dOv3r.git /opt/cr3dOv3r
+cd /opt/cr3dOv3r
 python3 -m pip install -r requirements.txt
 # python3 Cr3d0v3r.py -h
 
 echo "\n\n\n Installing - BC-SECURITY/Empire \n"
-git clone https://github.com/BC-SECURITY/Empire.git /opt/Empire
-cd /opt/Empire/setup/
+git clone https://github.com/BC-SECURITY/Empire.git /opt/empire
+cd /opt/empire/setup/
 ./install.sh    
 
 echo "\n\n\n Installing - Gr1mmie/sumrecon \n"
 apt -y install libssl-dev libffi-dev python-dev buildssential
-git clone https://github.com/byt3bl33d3r/CrackMapExec.git /opt/CrackMapExec
-cd /opt/CrackMapExec
+git clone https://github.com/byt3bl33d3r/CrackMapExec.git /opt/crackmapexec
+cd /opt/crackmapexec
 apt install python3.9-venv
 
 echo "\n\n\n Installing - chvancooten/BugBountyScanner \n"
@@ -369,8 +369,8 @@ cd /opt/impacket/
 sudo pip install /opt/impacket/.
 
 echo "\n\n\n Installing - eslam3kl/3klCon \n"
-sudo git clone https://github.com/eslam3kl/3klCon.git /opt/3lCkon/
-cd /opt/3lCkon/
+sudo git clone https://github.com/eslam3kl/3klCon.git /opt/3lckon/
+cd /opt/3lckon/
 chmod +x install_tools.sh
 ./install_tools.sh
 
