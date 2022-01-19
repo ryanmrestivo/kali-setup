@@ -13,7 +13,9 @@ echo "[+] Upgrading Kali version to latest..."
 sudo apt dist-upgrade -qq -y
 sudo apt full-upgrade -qq -y
 
-echo "[+] 202x.x OVA fixup..."
+echo Complete.
+
+# echo "[+] 202x.x OVA fixup..."
 
 # Fix: ORIG_HEAD broken reference
-sudo find /usr/share/ -name ORIG_HEAD -size -1b -delete
+# sudo find /usr/share/ -name ORIG_HEAD -size -1b -delete
