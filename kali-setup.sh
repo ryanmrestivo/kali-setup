@@ -5,6 +5,8 @@
 # Make sure file has needed perms
 # chmod +x Kali_Setup.sh
 
+#dos2unix file.sh
+
 #Prevent linux from going to sleep
 #power manager -> display -> slide everything left to "never"
 
@@ -186,6 +188,12 @@ cd /opt/sandmap
 apt -y install xterm
 chmod +x setup.sh
 ./setup.sh install
+
+echo "\n\n\n Installing - robotshell/magicRecon \n"
+git clone https://github.com/robotshell/magicRecon /opt/magicRecon
+cd /opt/magicRecon
+chmod +x install.sh
+./install.sh
 
 echo "\n\n\n Installing - smicallef/spiderfoot \n"
 git clone https://github.com/smicallef/spiderfoot.git /opt/spiderfoot
