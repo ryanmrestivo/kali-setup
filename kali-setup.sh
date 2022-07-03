@@ -147,6 +147,10 @@ apt -y install python3-dnspython python3-geoip python3-whois python3-requests py
 cd /opt/dnstwist/
 pip3 install -r requirements.txt
 
+echo "\n\n\n Installing - GamehunterKaan/AutoPWN-Suite \n"
+pip install autopwn-suite
+#autopwn-suite -y
+
 echo "\n\n\n Installing - threatexpress/domainhunter \n"
 git clone https://github.com/threatexpress/domainhunter.git /opt/domain-hunter
 cd /opt/domain-hunter/
