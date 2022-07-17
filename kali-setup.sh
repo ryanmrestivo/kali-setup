@@ -114,6 +114,7 @@ sudo git clone https://github.com/D4Vinci/One-Lin3r.git /opt/one-liner
 pip install one-lin3r
 
 echo "\n\n\n Downloading - knassar702/scant3r \n"
+# https://github.com/knassar702/scant3r
  git clone https://github.com/knassar702/scant3r /opt/scanter
  cd scant3r
  pip3 install -r requirements.txt
