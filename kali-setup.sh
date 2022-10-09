@@ -313,6 +313,12 @@ sudo find ./ -name "*.sh" -exec chmod +x {} \;
 sudo find ./ -name "*.py" -exec chmod +x {} \;
 cd aux && sudo ./setup.sh
 
+echo "\n\n\n Installing - R0X4R/Garud \n"
+sudo git clone https://github.com/R0X4R/Garud.git /opt/ && cd /opt/Garud/ && chmod +x garud install.sh && mv garud /usr/bin/ && ./install.sh
+
+echo "\n\n\n Installing - six2dez/reconftw \n"
+sudo git clone https://github.com/six2dez/reconftw.git /opt/ && cd /opt/reconftw/ && ./install.sh
+
 # vulsvan
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
 # vulners
