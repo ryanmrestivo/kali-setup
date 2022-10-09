@@ -313,6 +313,9 @@ sudo find ./ -name "*.sh" -exec chmod +x {} \;
 sudo find ./ -name "*.py" -exec chmod +x {} \;
 cd aux && sudo ./setup.sh
 
+echo "\n\n\n Installing - iamthefrogy/frogy \n"
+sudo git clone https://github.com/iamthefrogy/frogy.git /opt/ && cd /opt/frogy/ && && chmod +x install.sh && ./install.sh
+
 echo "\n\n\n Installing - R0X4R/Garud \n"
 sudo git clone https://github.com/R0X4R/Garud.git /opt/ && cd /opt/Garud/ && chmod +x garud install.sh && mv garud /usr/bin/ && ./install.sh
 
