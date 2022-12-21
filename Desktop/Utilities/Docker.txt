@@ -1,0 +1,25 @@
+# docker container ls -a
+# docker container management
+# docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
+#    --restart=always \
+#    -v /var/run/docker.sock:/var/run/docker.sock \
+#    -v portainer_data:/data \
+#    portainer/portainer-ce:latest
+# 0.0.0.0:9443 should be the default URL.
+
+# docker pull iknowjason/aria-base:latest
+# docker run -ti iknowjason/aria-base:latest
+# docker pull shmilylty/oneforall
+# docker run -it --rm shmilylty/oneforall
+# docker pull offensivedockerfiles/v3n0m-scanner
+# docker run -it offensivedockerfiles/v3n0m-scanner
+# docker pull offensivedockerfiles/gitminer
+# docker run -it offensivedockerfiles/gitminer
+# docker pull koutto/jok3r
+# docker run -i -t --name jok3r-container -w /root/jok3r -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --shm-size 2g --net=host koutto/jok3r
+# docker pull shmilylty/oneforall
+# docker run -it --rm shmilylty/oneforall
+# docker pull vainlystrain/tidos-framework
+# docker run -it vainlystrain/tidos-framework
+# docker pull rustscan/rustscan
+# docker run -it rustscan/rustscan
