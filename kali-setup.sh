@@ -36,9 +36,9 @@ sudo apt-get install -y perl
 # Basic/Other Tools Install
 
 echo "\n\n\n Installing - Basic/Other Tools \n"
-# sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-# docker volume create portainer_data
-# sudo systemctl enable docker --now
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+docker volume create portainer_data
+sudo systemctl enable docker --now
 sudo apt-get install -y tree
 # The ‘tree’ command is used for listing the files of a directory in a tree-like structure.
 sudo apt-get install -y htop
@@ -57,14 +57,14 @@ sudo apt install nodejs
 
 # Install searchsploit
 echo "\n\n\n Installing - searchsploit \n"
-sudo apt update && sudo apt -y install exploitdb
+sudo apt update & sudo apt -y install exploitdb
 echo "\n\n\n Installing - upgrading \n"
 searchsploit -u
 
 # Install AutoRecon - https://github.com/Tib3rius/AutoRecon#installation
 echo "\n\n\n Installing - Beta AutoRecon \n"
 git clone --branch beta https://github.com/Tib3rius/AutoRecon /opt/autorecon
-cd /opt/Autorecon
+cd /opt/autorecon
 sudo git pull
 sudo checkout beta
 sudo python3 -m pip install -r requirements.txt
@@ -137,7 +137,7 @@ echo "\n\n\n Installing - peterpt/eternal_scanner \n"
 git clone https://github.com/peterpt/eternal_scanner.git /opt/eternalscanner
 cd /opt/eternalscanner
 apt install masscan wget python-pip python-crypto python-impacket python-pyasn1-modules netcat
-pip install crypto && pip install impacket && pip install pyasn1-modules
+pip install crypto & pip install impacket & pip install pyasn1-modules
 chmod +x escan
 
 echo "\n\n\n Installing - Cyb0r9/ispy.git \n"
@@ -193,7 +193,7 @@ echo "\n\n\n Installing - alexandreborges/malwoverview \n"
 git clone https://github.com/alexandreborges/malwoverview.git /opt/malwoverview
 cd /opt/malwoverview
 pip install -r requirements.txt
-# cd /usr/local/bin/ && python3 malwoverview.py
+# cd /usr/local/bin/ & python3 malwoverview.py
 
 echo "\n\n\n Installing - projectdiscovery/nuclei \n"
 git clone https://github.com/projectdiscovery/nuclei.git /opt/nuclei
@@ -218,6 +218,7 @@ cd /opt/3lckon/
 chmod +x install_tools.sh
 ./install_tools.sh
 apt-get install jq nmap phantomjs npm chromium parallel
+pip3 install npm
 npm i -g wappalyzer wscat
 
 echo "\n\n\n Installing - t3l3machus/hoaxshell \n"
@@ -227,23 +228,22 @@ cd ./hoaxshell
 sudo pip3 install -r requirements.txt
 chmod +x hoaxshell.py
 
-echo "\n\n\n Installing - r00t-3xp10it/venom \n"
+echo "\n\n\n Downloading - r00t-3xp10it/venom \n"
 # https://github.com/r00t-3xp10it/venom
 # ./venom.sh -u
 git clone https://github.com/r00t-3xp10it/venom.git /opt/
-cd /opt/venom
-sudo find ./ -name "*.sh" -exec chmod +x {} \;
-sudo find ./ -name "*.py" -exec chmod +x {} \;
-cd aux && sudo ./setup.sh
+# sudo find ./ -name "*.sh" -exec chmod +x {} \;
+# sudo find ./ -name "*.py" -exec chmod +x {} \;
+# cd aux & sudo ./setup.sh
 
 echo "\n\n\n Installing - iamthefrogy/frogy \n"
-sudo git clone https://github.com/iamthefrogy/frogy.git /opt/ && cd /opt/frogy/ && && chmod +x install.sh && ./install.sh
+sudo git clone https://github.com/iamthefrogy/frogy.git /opt/ & cd /opt/frogy/ & chmod +x install.sh & ./install.sh
 
 echo "\n\n\n Installing - R0X4R/Garud \n"
-sudo git clone https://github.com/R0X4R/Garud.git /opt/ && cd /opt/Garud/ && chmod +x garud install.sh && mv garud /usr/bin/ && ./install.sh
+sudo git clone https://github.com/R0X4R/Garud.git /opt/ & cd /opt/Garud/ & chmod +x garud install.sh & mv garud /usr/bin/ & ./install.sh
 
 echo "\n\n\n Installing - six2dez/reconftw \n"
-sudo git clone https://github.com/six2dez/reconftw.git /opt/ && cd /opt/reconftw/ && ./install.sh
+sudo git clone https://github.com/six2dez/reconftw.git /opt/ & cd /opt/reconftw/ & ./install.sh
 
 
 echo "\n\n\n Downloads to /opt/_not_installed/ \n"
@@ -252,16 +252,15 @@ echo "\n\n\n Downloads to /opt/_not_installed/ \n"
 
 echo "\n\n\n Downloading - sahullander/Purple-Pwny \n"
 # https://github.com/sahullander/Purple-Pwny
-# git clone https://github.com/sahullander/Purple-Pwny.git /opt/_not_installed/Purple-Pwny
-# curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
+git clone https://github.com/sahullander/Purple-Pwny.git /opt/_not_installed/Purple-Pwny
+# curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall & chmod 755 msfinstall & ./msfinstall
 # ./msfconsole
 # sudo pip3 install python-nmap pymetasploit3 netifaces pandas
 
 # echo "\n\n\n Downloading - byt3bl33d3r/SILENTTRINITY \n"
 git clone https://github.com/byt3bl33d3r/SILENTTRINITY.git /opt/_not_installed/silenttrinity
-#/opt/silenttrinity
 # pip3 install -r requirements.txt
-# pip3 install --user pipenv && pipenv install
+# pip3 install --user pipenv & pipenv install
 
 #echo "\n\n\n Downloading - scipag/vulscan \n"
 git clone https://github.com/scipag/vulscan.git /opt/_not_installed/vulscan
@@ -269,7 +268,7 @@ git clone https://github.com/scipag/vulscan.git /opt/_not_installed/vulscan
 # may need to change directory, will test.  See shortcuts for commands.
 
 #echo "\n\n\n Downloading - 0xinfection/tidos-framework \n"
-# cd /opt/Osmedeus && python3 Osmedeus.py
+# cd /opt/Osmedeus & python3 Osmedeus.py
 git clone https://github.com/0xinfection/tidos-framework.git /opt/_not_installed/tidos-framework
 # cd /opt/tidos-framework
 # apt -y install libncurses5 libxml2 nmap tcpdump libexiv2-dev buildssential python3-pip libmariadbclient18 libmysqlclient-dev tor konsole
@@ -278,7 +277,7 @@ git clone https://github.com/0xinfection/tidos-framework.git /opt/_not_installed
 echo "\n\n\n Downloading - mazen160/shennina \n"
 # https://github.com/mazen160/shennina
 git clone https://github.com/mazen160/shennina.git /opt/_not_installed/shennina
-# pip3 install tensorflow
+pip3 install tensorflow
 # pip3 install -r requirements.txt
 
 #echo "\n\n\n Downloading - Screetsec/TheFatRat \n"
@@ -343,7 +342,7 @@ sudo git clone https://github.com/g0tmi1k/msfpc /opt/not_installed/msfvenom-payl
 echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
 # https://github.com/r00t-3xp10it/resource_files
 sudo git clone  https://github.com/r00t-3xp10it/resource_files /opt/not_installed/mosquito
-# cd mosquito && find ./ -name "*.sh" -exec chmod +x {} \;
+# cd mosquito & find ./ -name "*.sh" -exec chmod +x {} \;
 
 # vulsvan
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
