@@ -315,33 +315,33 @@ git clone https://github.com/hlldz/SpookFlare.git /opt/_not_installed/spookflare
 
 echo "\n\n\n Downloading - trustedsec/unicorn \n"
 # https://github.com/trustedsec/unicorn
-git clone https://github.com/trustedsec/unicorn.git /opt/not_installed/unicorn
+git clone https://github.com/trustedsec/unicorn.git /opt/_not_installed/unicorn
 
 echo "\n\n\n Downloading - D4Vinci/Cuteit \n"
 # https://github.com/D4Vinci/Cuteit
-git clone https://github.com/D4Vinci/Cuteit.git /opt/not_installed/cuteit
+git clone https://github.com/D4Vinci/Cuteit.git /opt/_not_installed/cuteit
 
 echo "\n\n\n Downloading - TryCatchHCF/Cloakify \n"
 # https://github.com/TryCatchHCF/Cloakify
-git clone https://github.com/TryCatchHCF/Cloakify.git /opt/not_installed/cloakify
+git clone https://github.com/TryCatchHCF/Cloakify.git /opt/_not_installed/cloakify
 
 echo "\n\n\n Downloading - tiagorlampert/CHAOS \n"
 # https://github.com/tiagorlampert/CHAOS
-git clone https://github.com/tiagorlampert/CHAOS.git /opt/not_installed/chaos
+git clone https://github.com/tiagorlampert/CHAOS.git /opt/_not_installed/chaos
 
 echo "\n\n\n Downloading - aboul3la/Sublist3r \n"
 # https://github.com/aboul3la/Sublist3r
-git clone https://github.com/aboul3la/Sublist3r.git /opt/not_installed/sublister
+git clone https://github.com/aboul3la/Sublist3r.git /opt/_not_installed/sublister
 
 echo "\n\n\n Downloading - g0tmi1k/msfpc \n"
-sudo git clone https://github.com/g0tmi1k/msfpc /opt/not_installed/msfvenom-payload-creator
+sudo git clone https://github.com/g0tmi1k/msfpc /opt/_not_installed/msfvenom-payload-creator
 # https://github.com/g0tmi1k/msfpc
 # curl -k -L "https://raw.githubusercontent.com/g0tmi1k/mpc/master/msfpc.sh" > /usr/local/bin/msfpc
 # chmod 0755 /usr/local/bin/msfpc
 
 echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
 # https://github.com/r00t-3xp10it/resource_files
-sudo git clone  https://github.com/r00t-3xp10it/resource_files /opt/not_installed/mosquito
+sudo git clone  https://github.com/r00t-3xp10it/resource_files /opt/_not_installed/mosquito
 # cd mosquito & find ./ -name "*.sh" -exec chmod +x {} \;
 
 # vulsvan
@@ -386,7 +386,7 @@ sudo git clone  https://github.com/r00t-3xp10it/resource_files /opt/not_installe
 # docker image ls
 
 ln -s /opt/ /home/kali/Desktop/opt
-ln -s /opt/not_installed /home/kali/Desktop/opt/not_installed
+ln -s /opt/_not_installed /home/kali/Desktop/opt/_not_installed
 
 # Setup File Strucutres 
 sudo chmod -R 755 /opt 
