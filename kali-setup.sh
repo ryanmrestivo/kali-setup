@@ -21,7 +21,7 @@ yes | sudo apt upgrade
 
 ln -s /opt/ /home/kali/Desktop/opt
 
-sudo apt-get install -y git 
+sudo apt-get install -y git
 
 sudo apt-get install -y perl  
 
@@ -41,15 +41,19 @@ sudo apt-get install -y docker.io
 docker volume create portainer_data
 sudo systemctl enable docker --now
 sudo apt-get install -y tree
+#
 sudo apt-get install -y htop
+#
 sudo apt-get install -y bleachbit
+#
+sudo apt-get install -y gdu
+#
 pip install pipenv
 pip3 install name-that-hash
 pip3 install search-that-hash
 python2 -m pip install pipenv
 python3 -m pip install pipenv
 python3 -m pip install mitmproxy
-sudo apt-get install -y gdu
 sudo apt install nodejs
 
 # Install searchsploit
@@ -73,39 +77,14 @@ sudo git clone https://github.com/21y4d/nmapAutomator.git /opt/nmapautomator/
 # Creates a Symbolic Link to the file so you can call it from anywhere
 sudo ln -s /opt/nmapautomator/nmapAutomator.sh /usr/local/bin/
 
-echo "\n\n\n Downloading - trustedsec/unicorn \n"
-# https://github.com/trustedsec/unicorn
-git clone https://github.com/trustedsec/unicorn.git /opt/unicorn
-
-echo "\n\n\n Downloading - D4Vinci/Cuteit \n"
-# https://github.com/D4Vinci/Cuteit
-git clone https://github.com/D4Vinci/Cuteit.git /opt/cuteit
-
-echo "\n\n\n Downloading - TryCatchHCF/Cloakify \n"
-# https://github.com/TryCatchHCF/Cloakify
-git clone https://github.com/TryCatchHCF/Cloakify.git /opt/cloakify
-
 echo "\n\n\n Downloading - Tuhinshubhra/RED_HAWK \n"
 # https://github.com/Tuhinshubhra/RED_HAWK
 git clone https://github.com/Tuhinshubhra/RED_HAWK.git /opt/redhawk
 
-echo "\n\n\n Downloading - tiagorlampert/CHAOS \n"
-# https://github.com/tiagorlampert/CHAOS
-git clone https://github.com/tiagorlampert/CHAOS.git /opt/chaos
-
-echo "\n\n\n Downloading - aboul3la/Sublist3r \n"
-# https://github.com/aboul3la/Sublist3r
-git clone https://github.com/aboul3la/Sublist3r.git /opt/sublister
-
-sudo git clone https://github.com/g0tmi1k/msfpc /opt/msfvenom-payload-creator
-# https://github.com/g0tmi1k/msfpc
-curl -k -L "https://raw.githubusercontent.com/g0tmi1k/mpc/master/msfpc.sh" > /usr/local/bin/msfpc
-chmod 0755 /usr/local/bin/msfpc
-
-echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
-# https://github.com/r00t-3xp10it/resource_files
-sudo git clone  https://github.com/r00t-3xp10it/resource_files /opt/mosquito
-cd mosquito && find ./ -name "*.sh" -exec chmod +x {} \;
+echo "\n\n\n Installing - leebaird/discover \n"
+git clone https://github.com/leebaird/discover /opt/discover/
+cd /opt/discover/
+./update.sh
 
 echo "\n\n\n Downloading - One-Lin3r \n"
 # https://github.com/D4Vinci/One-Lin3r
@@ -152,22 +131,11 @@ echo "\n\n\n Installing - GamehunterKaan/AutoPWN-Suite \n"
 pip install autopwn-suite
 #autopwn-suite -y
 
-echo "\n\n\n Installing - threatexpress/domainhunter \n"
-git clone https://github.com/threatexpress/domainhunter.git /opt/domain-hunter
-cd /opt/domain-hunter/
-pip3 install -r requirements.txt
-chmod 755 domainhunter.py	
-
 echo "\n\n\n Installing - Veil-Framework/Veil \n"
 git clone https://github.com/Veil-Framework/Veil.git /opt/Veil
 cd /opt/Veil/config/
 ./setup.sh --force --silent
 apt -y install veil	
-
-echo "\n\n\n Installing - hlldz/SpookFlare \n"
-git clone https://github.com/hlldz/SpookFlare.git /opt/spookflare
-cd /opt/spookflare
-pip install -r requirements.txt
 
 echo "\n\n\n Installing - peterpt/eternal_scanner \n"
 git clone https://github.com/peterpt/eternal_scanner.git /opt/eternalscanner
@@ -212,16 +180,9 @@ chmod +x setup.sh
 ./setup.sh
 chmod +x Remot3d.sh
 
-echo "\n\n\n Installing - byt3bl33d3r/SILENTTRINITY \n"
-git clone https://github.com/byt3bl33d3r/SILENTTRINITY.git /opt/silenttrinity
-/opt/silenttrinity
-pip3 install -r requirements.txt
-pip3 install --user pipenv && pipenv install
-
-echo "\n\n\n Installing - scipag/vulscan \n"
-git clone https://github.com/scipag/vulscan.git /opt/vulscan
-ln -s `pwd`/vulscan /usr/share/nmap/scripts/vulscan
-# may need to change directory, will test.  See shortcuts for commands.
+#echo "\n\n\n Installing -  blacklanternsecurity/bbot \n"
+pip install bbot
+# https://github.com/blacklanternsecurity/bbot
 
 echo "\n\n\n Installing - j3ssie/Osmedeus \n"
 git clone https://github.com/j3ssie/Osmedeus.git /opt/osmedeus
@@ -232,41 +193,15 @@ git clone --depth=1 https://github.com/j3ssie/osmedeus $GOPATH/src/github.com/j3
 cd $GOPATH/src/github.com/j3ssie/osmedeus
 make build
 
-echo "\n\n\n Installing - 0xinfection/tidos-framework \n"
-# cd /opt/Osmedeus && python3 Osmedeus.py
-git clone https://github.com/0xinfection/tidos-framework.git /opt/tidos-framework
-cd /opt/tidos-framework
-apt -y install libncurses5 libxml2 nmap tcpdump libexiv2-dev buildssential python3-pip libmariadbclient18 libmysqlclient-dev tor konsole
-pip3 install -r requirements.txt
-
 echo "\n\n\n Installing - alexandreborges/malwoverview \n"
 git clone https://github.com/alexandreborges/malwoverview.git /opt/malwoverview
 cd /opt/malwoverview
 pip install -r requirements.txt
 # cd /usr/local/bin/ && python3 malwoverview.py
 
-echo "\n\n\n Installing - Screetsec/TheFatRat \n"
-git clone https://github.com/Screetsec/TheFatRat.git /opt/thefatrat
-cd /opt/thefatrat
-chmod +x setup.sh
-./setup.sh
-chmod +x fatrat
-
-echo "\n\n\n Installing - shmilylty/OneForAll \n"
-git clone https://github.com/shmilylty/OneForAll.git /opt/oneforall
-cd /opt/oneforall
-python3 -m pip install -U pip setuptools wheel
-pip3 install -r requirements.txt
-
 echo "\n\n\n Installing - projectdiscovery/nuclei \n"
 git clone https://github.com/projectdiscovery/nuclei.git /opt/nuclei
 go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
-
-echo "\n\n\n Installing - D4Vinci/Cr3dOv3r \n"
-git clone https://github.com/D4Vinci/Cr3dOv3r.git /opt/cr3dOv3r
-cd /opt/cr3dOv3r
-python3 -m pip install -r requirements.txt
-# python3 Cr3d0v3r.py -h
 
 git clone https://github.com/chvancooten/BugBountyScanner.git /opt/BugBountyScanner
 cd BugBountyScanner
@@ -275,21 +210,6 @@ chmod +x BugBountyScanner.sh setup.sh
 ./setup.sh -t /custom/tools/dir # Setup is automatically triggered, but can be manually run
 # ./BugBountyScanner.sh --help
 # ./BugBountyScanner.sh -d target1.com -d target2.net -t /custom/tools/dir --quick
-
-echo "\n\n\n Installing - leebaird/discover \n"
-git clone https://github.com/leebaird/discover /opt/discover/
-cd /opt/discover/
-./update.sh
-
-echo "\n\n\n Installing - BC-SECURITY/Empire \n"
-git clone https://github.com/BC-SECURITY/Empire.git /opt/empire
-cd /opt/empire/setup/
-./install.sh    
-
-echo "\n\n\n Installing - screetsec/Sudomy \n"
-git clone --recursive https://github.com/screetsec/Sudomy.git /opt/Sudomy
-cd Sudomy
-python3 -m pip install -r requirements.txt
 
 echo "\n\n\n Installing - VainlyStrain/Vailyn \n"
 git clone https://github.com/VainlyStrain/Vailyn
@@ -303,6 +223,13 @@ chmod +x install_tools.sh
 ./install_tools.sh
 apt-get install jq nmap phantomjs npm chromium parallel
 npm i -g wappalyzer wscat
+
+echo "\n\n\n Installing - t3l3machus/hoaxshell \n"
+git clone https://github.com/t3l3machus/hoaxshell
+# https://github.com/t3l3machus/hoaxshell
+cd ./hoaxshell
+sudo pip3 install -r requirements.txt
+chmod +x hoaxshell.py
 
 echo "\n\n\n Installing - r00t-3xp10it/venom \n"
 # https://github.com/r00t-3xp10it/venom
@@ -321,6 +248,88 @@ sudo git clone https://github.com/R0X4R/Garud.git /opt/ && cd /opt/Garud/ && chm
 
 echo "\n\n\n Installing - six2dez/reconftw \n"
 sudo git clone https://github.com/six2dez/reconftw.git /opt/ && cd /opt/reconftw/ && ./install.sh
+
+# echo "\n\n\n Downloading - byt3bl33d3r/SILENTTRINITY \n"
+git clone https://github.com/byt3bl33d3r/SILENTTRINITY.git /opt/_not_installed/silenttrinity
+#/opt/silenttrinity
+# pip3 install -r requirements.txt
+# pip3 install --user pipenv && pipenv install
+
+#echo "\n\n\n Downloading - scipag/vulscan \n"
+git clone https://github.com/scipag/vulscan.git /opt/_not_installed/vulscan
+#ln -s `pwd`/vulscan /usr/share/nmap/scripts/vulscan
+# may need to change directory, will test.  See shortcuts for commands.
+
+#echo "\n\n\n Downloading - 0xinfection/tidos-framework \n"
+# cd /opt/Osmedeus && python3 Osmedeus.py
+git clone https://github.com/0xinfection/tidos-framework.git /opt/_not_installed/tidos-framework
+# cd /opt/tidos-framework
+# apt -y install libncurses5 libxml2 nmap tcpdump libexiv2-dev buildssential python3-pip libmariadbclient18 libmysqlclient-dev tor konsole
+# pip3 install -r requirements.txt
+
+#echo "\n\n\n Downloading - Screetsec/TheFatRat \n"
+git clone https://github.com/Screetsec/TheFatRat.git /opt/_not_installed/thefatrat
+# cd /opt/thefatrat
+# chmod +x setup.sh
+# ./setup.sh
+# chmod +x fatrat
+
+#echo "\n\n\n Downloading - shmilylty/OneForAll \n"
+git clone https://github.com/shmilylty/OneForAll.git /opt/_not_installed/oneforall
+# cd /opt/oneforall
+# python3 -m pip install -U pip setuptools wheel
+# pip3 install -r requirements.txt
+
+#echo "\n\n\n Downloading - D4Vinci/Cr3dOv3r \n"
+git clone https://github.com/D4Vinci/Cr3dOv3r.git /opt/_not_installed/cr3dOv3r
+# cd /opt/cr3dOv3r
+# python3 -m pip install -r requirements.txt
+# python3 Cr3d0v3r.py -h
+
+#echo "\n\n\n Downloading - BC-SECURITY/Empire \n"
+git clone https://github.com/BC-SECURITY/Empire.git /opt/_not_installed/empire
+# cd /opt/empire/setup/
+# ./install.sh    
+
+echo "\n\n\n Downloading - screetsec/Sudomy \n"
+git clone --recursive https://github.com/screetsec/Sudomy.git /opt/_not_installed/Sudomy
+# python3 -m pip install -r requirements.txt
+#echo "\n\n\n Downloading - hlldz/SpookFlare \n"
+
+git clone https://github.com/hlldz/SpookFlare.git /opt/_not_installed/spookflare
+# cd /opt/spookflare
+# pip install -r requirements.txt
+
+echo "\n\n\n Downloading - trustedsec/unicorn \n"
+# https://github.com/trustedsec/unicorn
+git clone https://github.com/trustedsec/unicorn.git /opt/not_installed/unicorn
+
+echo "\n\n\n Downloading - D4Vinci/Cuteit \n"
+# https://github.com/D4Vinci/Cuteit
+git clone https://github.com/D4Vinci/Cuteit.git /opt/not_installed/cuteit
+
+echo "\n\n\n Downloading - TryCatchHCF/Cloakify \n"
+# https://github.com/TryCatchHCF/Cloakify
+git clone https://github.com/TryCatchHCF/Cloakify.git /opt/not_installed/cloakify
+
+echo "\n\n\n Downloading - tiagorlampert/CHAOS \n"
+# https://github.com/tiagorlampert/CHAOS
+git clone https://github.com/tiagorlampert/CHAOS.git /opt/not_installed/chaos
+
+echo "\n\n\n Downloading - aboul3la/Sublist3r \n"
+# https://github.com/aboul3la/Sublist3r
+git clone https://github.com/aboul3la/Sublist3r.git /opt/not_installed/sublister
+
+echo "\n\n\n Downloading - g0tmi1k/msfpc \n"
+sudo git clone https://github.com/g0tmi1k/msfpc /opt/not_installed/msfvenom-payload-creator
+# https://github.com/g0tmi1k/msfpc
+# curl -k -L "https://raw.githubusercontent.com/g0tmi1k/mpc/master/msfpc.sh" > /usr/local/bin/msfpc
+# chmod 0755 /usr/local/bin/msfpc
+
+echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
+# https://github.com/r00t-3xp10it/resource_files
+sudo git clone  https://github.com/r00t-3xp10it/resource_files /opt/not_installed/mosquito
+cd mosquito && find ./ -name "*.sh" -exec chmod +x {} \;
 
 # vulsvan
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
