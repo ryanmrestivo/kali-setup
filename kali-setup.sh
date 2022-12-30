@@ -19,35 +19,34 @@ export DEBIAN_PRIORITY=critical
 sudo -E apt -y update
 yes | sudo apt upgrade
 
-ln -s /opt/ /home/kali/Desktop/opt
-
 sudo apt-get install -y git
 
 sudo apt-get install -y perl  
 
 # Install Go - https://golang.org/doc/install
-echo "\n\n\n Installing - Go \n"
-sudo wget -P /opt/https://golang.org/dl/go1.16.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf /opt/sys_tool_install/go1.16.linux-amd64.tar.gz
-sudo export GOPATH=$HOME/go
-sudo export PATH=$PATH:/usr/local/go/bin
-rm go1.16.linux-amd64.tar.gz
-
+# echo "\n\n\n Installing - Go \n"
+# sudo wget -P https://golang.org/dl/go1.16.linux-amd64.tar.gz
+# mv sys_tool_install/go1.16.linux-amd64.tar.gz /opt/
+# cd /opt/
+# sudo tar -C /usr/local -xzf /opt/sys_tool_install/go1.16.linux-amd64.tar.gz
+# sudo export GOPATH=$HOME/go
+# sudo export PATH=$PATH:/usr/local/go/bin
+#rm go1.16.linux-amd64.tar.gz
 
 # Basic/Other Tools Install
 
 echo "\n\n\n Installing - Basic/Other Tools \n"
-sudo apt-get install -y docker.io
-docker volume create portainer_data
-sudo systemctl enable docker --now
+# sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+# docker volume create portainer_data
+# sudo systemctl enable docker --now
 sudo apt-get install -y tree
-#
+# The ‘tree’ command is used for listing the files of a directory in a tree-like structure.
 sudo apt-get install -y htop
-#
+# htop is an interactive text-mode process viewer for Unix systems.
 sudo apt-get install -y bleachbit
-#
+# BleachBit system cleaner for Windows and Linux 
 sudo apt-get install -y gdu
-#
+# Fast disk usage analyzer with console interface written in Go 
 pip install pipenv
 pip3 install name-that-hash
 pip3 install search-that-hash
@@ -249,6 +248,18 @@ sudo git clone https://github.com/R0X4R/Garud.git /opt/ && cd /opt/Garud/ && chm
 echo "\n\n\n Installing - six2dez/reconftw \n"
 sudo git clone https://github.com/six2dez/reconftw.git /opt/ && cd /opt/reconftw/ && ./install.sh
 
+
+echo "\n\n\n Downloads to /opt/_not_installed/ \n"
+echo "\n\n\n Downloads to /opt/_not_installed/ \n"
+echo "\n\n\n Downloads to /opt/_not_installed/ \n"
+
+echo "\n\n\n Downloading - sahullander/Purple-Pwny \n"
+# https://github.com/sahullander/Purple-Pwny
+# git clone https://github.com/sahullander/Purple-Pwny.git /opt/_not_installed/Purple-Pwny
+# curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
+# ./msfconsole
+# sudo pip3 install python-nmap pymetasploit3 netifaces pandas
+
 # echo "\n\n\n Downloading - byt3bl33d3r/SILENTTRINITY \n"
 git clone https://github.com/byt3bl33d3r/SILENTTRINITY.git /opt/_not_installed/silenttrinity
 #/opt/silenttrinity
@@ -265,6 +276,12 @@ git clone https://github.com/scipag/vulscan.git /opt/_not_installed/vulscan
 git clone https://github.com/0xinfection/tidos-framework.git /opt/_not_installed/tidos-framework
 # cd /opt/tidos-framework
 # apt -y install libncurses5 libxml2 nmap tcpdump libexiv2-dev buildssential python3-pip libmariadbclient18 libmysqlclient-dev tor konsole
+# pip3 install -r requirements.txt
+
+echo "\n\n\n Downloading - mazen160/shennina \n"
+# https://github.com/mazen160/shennina
+git clone https://github.com/mazen160/shennina.git /opt/_not_installed/shennina
+# pip3 install tensorflow
 # pip3 install -r requirements.txt
 
 #echo "\n\n\n Downloading - Screetsec/TheFatRat \n"
@@ -371,6 +388,9 @@ cd mosquito && find ./ -name "*.sh" -exec chmod +x {} \;
 # docker run -it rustscan/rustscan
 
 # docker image ls
+
+ln -s /opt/ /home/kali/Desktop/opt
+ln -s /opt/not_installed /home/kali/Desktop/opt/not_installed
 
 # Setup File Strucutres 
 sudo chmod -R 755 /opt 
