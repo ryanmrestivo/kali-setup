@@ -209,7 +209,7 @@ chmod +x BugBountyScanner.sh setup.sh
 # ./BugBountyScanner.sh -d target1.com -d target2.net -t /custom/tools/dir --quick
 
 echo "\n\n\n Installing - VainlyStrain/Vailyn \n"
-git clone https://github.com/VainlyStrain/Vailyn
+git clone https://github.com/VainlyStrain/Vailyn /opt/Vailyn
 cd /opt/Vailyn
 pip install -r requirements.txt
 
@@ -223,29 +223,38 @@ pip3 install npm
 npm i -g wappalyzer wscat
 
 echo "\n\n\n Installing - t3l3machus/hoaxshell \n"
-git clone https://github.com/t3l3machus/hoaxshell /opt/
+git clone https://github.com/t3l3machus/hoaxshell /opt/hoaxshell
 # https://github.com/t3l3machus/hoaxshell
-cd ./hoaxshell
+cd hoaxshell
 sudo pip3 install -r requirements.txt
 chmod +x hoaxshell.py
 
 echo "\n\n\n Downloading - r00t-3xp10it/venom \n"
 # https://github.com/r00t-3xp10it/venom
 # ./venom.sh -u
-git clone https://github.com/r00t-3xp10it/venom.git /opt/
+git clone https://github.com/r00t-3xp10it/venom.git /opt/_not_installed/venom
 # sudo find ./ -name "*.sh" -exec chmod +x {} \;
 # sudo find ./ -name "*.py" -exec chmod +x {} \;
 # cd aux & sudo ./setup.sh
 
 echo "\n\n\n Installing - iamthefrogy/frogy \n"
-sudo git clone https://github.com/iamthefrogy/frogy.git /opt/ & cd /opt/frogy/ & chmod +x install.sh & ./install.sh
+git clone https://github.com/iamthefrogy/frogy.git /opt/frogy
+cd /opt/frogy/ 
+chmod +x install.sh
+./install.sh
 
 echo "\n\n\n Installing - R0X4R/Garud \n"
-sudo git clone https://github.com/R0X4R/Garud.git /opt/ & cd /opt/Garud/ & chmod +x garud install.sh & mv garud /usr/bin/ & ./install.sh
+git clone https://github.com/R0X4R/Garud.git /opt/Garud 
+cd /opt/Garud/
+chmod +x garud 
+chmod +x install.sh
+mv garud /usr/bin/
+./install.sh
 
 echo "\n\n\n Installing - six2dez/reconftw \n"
-sudo git clone https://github.com/six2dez/reconftw.git /opt/ & cd /opt/reconftw/ & ./install.sh
-
+git clone https://github.com/six2dez/reconftw.git /opt/reconftw
+cd /opt/reconftw 
+./install.sh
 
 echo "\n\n\n Downloads to /opt/_not_installed/ \n"
 echo "\n\n\n Downloads to /opt/_not_installed/ \n"
