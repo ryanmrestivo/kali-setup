@@ -107,10 +107,10 @@ git clone https://github.com/aristocratos/bashtop.git /opt/bashtop
 cd /opt/bashtop/DEB
 ./build
 
-echo "\n\n\n Installing - 0xApt/awesome-bbht \n"
-git clone https://github.com/0xApt/awesome-bbht.sh /opt/bbht
-cd bbht
-chmod +x awesome-bbht.sh
+# echo "\n\n\n Installing - 0xApt/awesome-bbht \n"
+# git clone https://github.com/0xApt/awesome-bbht.sh /opt/bbht
+# cd bbht
+# chmod +x awesome-bbht.sh
 
 echo "\n\n\n Installing - darkoperator/dnsrecon \n"
 git clone https://github.com/darkoperator/dnsrecon.git /opt/dnsrecon
