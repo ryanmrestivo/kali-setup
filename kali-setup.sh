@@ -5,7 +5,7 @@
 # Make sure file has needed perms
 # chmod +x Kali_Setup.sh
 
-#dos2unix file.sh
+# dos2unix file.sh
 
 #Prevent linux from going to sleep
 #power manager -> display -> slide everything left to "never"
@@ -112,9 +112,6 @@ git clone https://github.com/0xApt/awesome-bbht.sh /opt/bbht
 cd bbht
 chmod +x awesome-bbht.sh
 
-cd awesome-bbht
-chmod +x awesome-bbht.sh
-
 echo "\n\n\n Installing - darkoperator/dnsrecon \n"
 git clone https://github.com/darkoperator/dnsrecon.git /opt/dnsrecon
 cd /opt/dnsrecon/
@@ -128,7 +125,7 @@ pip3 install -r requirements.txt
 
 echo "\n\n\n Installing - GamehunterKaan/AutoPWN-Suite \n"
 pip install autopwn-suite
-#autopwn-suite -y
+# autopwn-suite -y
 
 echo "\n\n\n Installing - Veil-Framework/Veil \n"
 git clone https://github.com/Veil-Framework/Veil.git /opt/Veil
@@ -179,7 +176,7 @@ chmod +x setup.sh
 ./setup.sh
 chmod +x Remot3d.sh
 
-#echo "\n\n\n Installing -  blacklanternsecurity/bbot \n"
+# echo "\n\n\n Installing -  blacklanternsecurity/bbot \n"
 pip install bbot
 # https://github.com/blacklanternsecurity/bbot
 
@@ -224,7 +221,7 @@ apt-get install jq nmap phantomjs npm chromium parallel
 npm i -g wappalyzer wscat
 
 echo "\n\n\n Installing - t3l3machus/hoaxshell \n"
-git clone https://github.com/t3l3machus/hoaxshell
+git clone https://github.com/t3l3machus/hoaxshell /opt/
 # https://github.com/t3l3machus/hoaxshell
 cd ./hoaxshell
 sudo pip3 install -r requirements.txt
@@ -234,7 +231,7 @@ echo "\n\n\n Installing - r00t-3xp10it/venom \n"
 # https://github.com/r00t-3xp10it/venom
 # ./venom.sh -u
 git clone https://github.com/r00t-3xp10it/venom.git /opt/
-cd opt/venom
+cd /opt/venom
 sudo find ./ -name "*.sh" -exec chmod +x {} \;
 sudo find ./ -name "*.py" -exec chmod +x {} \;
 cd aux && sudo ./setup.sh
@@ -268,7 +265,7 @@ git clone https://github.com/byt3bl33d3r/SILENTTRINITY.git /opt/_not_installed/s
 
 #echo "\n\n\n Downloading - scipag/vulscan \n"
 git clone https://github.com/scipag/vulscan.git /opt/_not_installed/vulscan
-#ln -s `pwd`/vulscan /usr/share/nmap/scripts/vulscan
+# ln -s `pwd`/vulscan /usr/share/nmap/scripts/vulscan
 # may need to change directory, will test.  See shortcuts for commands.
 
 #echo "\n\n\n Downloading - 0xinfection/tidos-framework \n"
@@ -311,7 +308,7 @@ git clone https://github.com/BC-SECURITY/Empire.git /opt/_not_installed/empire
 echo "\n\n\n Downloading - screetsec/Sudomy \n"
 git clone --recursive https://github.com/screetsec/Sudomy.git /opt/_not_installed/Sudomy
 # python3 -m pip install -r requirements.txt
-#echo "\n\n\n Downloading - hlldz/SpookFlare \n"
+# echo "\n\n\n Downloading - hlldz/SpookFlare \n"
 
 git clone https://github.com/hlldz/SpookFlare.git /opt/_not_installed/spookflare
 # cd /opt/spookflare
@@ -346,7 +343,7 @@ sudo git clone https://github.com/g0tmi1k/msfpc /opt/not_installed/msfvenom-payl
 echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
 # https://github.com/r00t-3xp10it/resource_files
 sudo git clone  https://github.com/r00t-3xp10it/resource_files /opt/not_installed/mosquito
-cd mosquito && find ./ -name "*.sh" -exec chmod +x {} \;
+# cd mosquito && find ./ -name "*.sh" -exec chmod +x {} \;
 
 # vulsvan
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
