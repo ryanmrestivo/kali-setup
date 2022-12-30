@@ -73,7 +73,7 @@ sudo python3 -m pip install -r requirements.txt
 # Install nmapAutomator - https://github.com/21y4d/nmapAutomator
 echo "\n\n\n Installing - nmapAutomator \n"
 cd /opt/
-sudo git clone https://github.com/21y4d/nmapAutomator.git /opt/nmapautomator/
+git clone https://github.com/21y4d/nmapAutomator.git /opt/nmapautomator/
 # Creates a Symbolic Link to the file so you can call it from anywhere
 sudo ln -s /opt/nmapautomator/nmapAutomator.sh /usr/local/bin/
 
@@ -89,7 +89,7 @@ cd /opt/discover/
 echo "\n\n\n Downloading - One-Lin3r \n"
 # https://github.com/D4Vinci/One-Lin3r
 # one-lin3r -h
-sudo git clone https://github.com/D4Vinci/One-Lin3r.git /opt/one-liner
+git clone https://github.com/D4Vinci/One-Lin3r.git /opt/one-liner
 pip install one-lin3r
 
 echo "\n\n\n Downloading - knassar702/scant3r \n"
@@ -214,7 +214,7 @@ cd /opt/Vailyn
 pip install -r requirements.txt
 
 echo "\n\n\n Installing - eslam3kl/3klCon \n"
-sudo git clone https://github.com/eslam3kl/3klCon.git /opt/3lckon/
+git clone https://github.com/eslam3kl/3klCon.git /opt/3lckon/
 cd /opt/3lckon/
 chmod +x install_tools.sh
 ./install_tools.sh
@@ -226,7 +226,7 @@ echo "\n\n\n Installing - t3l3machus/hoaxshell \n"
 git clone https://github.com/t3l3machus/hoaxshell /opt/hoaxshell
 # https://github.com/t3l3machus/hoaxshell
 cd hoaxshell
-sudo pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 chmod +x hoaxshell.py
 
 echo "\n\n\n Downloading - r00t-3xp10it/venom \n"
@@ -265,7 +265,7 @@ echo "\n\n\n Downloading - sahullander/Purple-Pwny \n"
 git clone https://github.com/sahullander/Purple-Pwny.git /opt/_not_installed/Purple-Pwny
 # curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall & chmod 755 msfinstall & ./msfinstall
 # ./msfconsole
-# sudo pip3 install python-nmap pymetasploit3 netifaces pandas
+# pip3 install python-nmap pymetasploit3 netifaces pandas
 
 # echo "\n\n\n Downloading - byt3bl33d3r/SILENTTRINITY \n"
 git clone https://github.com/byt3bl33d3r/SILENTTRINITY.git /opt/_not_installed/silenttrinity
@@ -344,14 +344,14 @@ echo "\n\n\n Downloading - aboul3la/Sublist3r \n"
 git clone https://github.com/aboul3la/Sublist3r.git /opt/_not_installed/sublister
 
 echo "\n\n\n Downloading - g0tmi1k/msfpc \n"
-sudo git clone https://github.com/g0tmi1k/msfpc /opt/_not_installed/msfvenom-payload-creator
+git clone https://github.com/g0tmi1k/msfpc /opt/_not_installed/msfvenom-payload-creator
 # https://github.com/g0tmi1k/msfpc
 # curl -k -L "https://raw.githubusercontent.com/g0tmi1k/mpc/master/msfpc.sh" > /usr/local/bin/msfpc
 # chmod 0755 /usr/local/bin/msfpc
 
 echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
 # https://github.com/r00t-3xp10it/resource_files
-sudo git clone  https://github.com/r00t-3xp10it/resource_files /opt/_not_installed/mosquito
+git clone  https://github.com/r00t-3xp10it/resource_files /opt/_not_installed/mosquito
 # cd mosquito & find ./ -name "*.sh" -exec chmod +x {} \;
 
 # vulsvan
