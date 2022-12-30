@@ -5,6 +5,7 @@
 # Make sure file has needed perms
 # chmod +x Kali_Setup.sh
 
+# prepare file for execution
 # dos2unix file.sh
 
 #Prevent linux from going to sleep
