@@ -329,11 +329,12 @@ git clone https://github.com/trustedsec/unicorn.git /opt/_not_installed/unicorn
 
 echo "\n\n\n Downloading - D4Vinci/Cuteit \n"
 # https://github.com/D4Vinci/Cuteit
-git clone https://github.com/D4Vinci/Cuteit.git /opt/_not_installed/cuteit
+git clone https://github.com/D4Vinci/Cuteit.git /opt/cuteit
 
 echo "\n\n\n Downloading - TryCatchHCF/Cloakify \n"
 # https://github.com/TryCatchHCF/Cloakify
 git clone https://github.com/TryCatchHCF/Cloakify.git /opt/_not_installed/cloakify
+# python2 clokifyFactory.py
 
 echo "\n\n\n Downloading - tiagorlampert/CHAOS \n"
 # https://github.com/tiagorlampert/CHAOS
