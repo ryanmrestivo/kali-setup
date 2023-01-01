@@ -394,6 +394,10 @@ git clone  https://github.com/r00t-3xp10it/resource_files /opt/_not_installed/mo
 # docker pull rustscan/rustscan
 # docker run -it rustscan/rustscan
 
+# get bookmarks from tl-osint
+cd /home/kali/Desktop/
+wget -O bookmarks.html https://raw.githubusercontent.com/tracelabs/tlosint-live/master/bookmarks.html
+
 # docker image ls
 
 ln -s /opt/ /home/kali/Desktop/opt
