@@ -1,29 +1,34 @@
-This repository is designed to get up-and-running with some tools and configurataions that I believe should come with Kali Linux.  This setup script has been made primarily out of frustration with currently existing (broken, incomplete, poorly written) repositories available.
+# Kali Linux Setup Script
 
-This setup is not completely unattended (service restarts... I'm working on it).
+This repository contains a script designed to automate the setup of Kali Linux with essential tools and configurations. It's born out of frustration with existing repositories and aims to provide a more reliable and comprehensive setup for Kali Linux users.
 
-If you get an error with the update script go into terminal and type "dos2unix [filename]."
+## Prerequisites
 
-If you have any notifications from mestasploit regarding having a minimal distribution type "sudo tasksel" then use the "space" bar to add/remove packages.
+- Root access
 
-To immediately get started and execute the full upgrade paste this into terminal as root:
+## Installation
 
-python install get-pip.py
+1. Open terminal as root.
+2. Install pip by running the following command:
+	python install get-pip.py
+3. Download and execute the setup script with the following command:
+	wget https://raw.githubusercontent.com/ryanmrestivo/kali-setup/kali_setup.sh -O /home/kali/Desktop/ && chmod 777 kali_setup.sh && ./kali_setup.sh
 
-wget https://raw.githubusercontent.com/ryanmrestivo/kali-setup/kali_setup.sh -O /home/kali/Desktop/ && chmod 777 kali_setup.sh && ./kali_setup.sh
+## Usage
 
-tree
-# The ‘tree’ command is used for listing the files of a directory in a tree-like structure.
+1. Once installed, use the 'tree' command to list files in a directory in a tree-like structure.
+2. Use 'htop' for an interactive text-mode process viewer.
+3. ... (additional usage instructions)
 
-htop
-# htop is an interactive text-mode process viewer for Unix systems.
+## Troubleshooting
 
-bleachbit
-# BleachBit system cleaner for Windows and Linux 
+- If you encounter an error with the update script, type `dos2unix [filename]` in the terminal.
+- If you receive notifications from Metasploit regarding a minimal distribution, type `sudo tasksel` and use the space bar to add/remove packages.
 
-searchsploit
+## Contributing
 
-autopwn-suite
+Contributions are welcome!
 
-bbot
-# OSINT automation
+## Contact
+
+For more information or support, please contact at my email on my GitHub profile page.
