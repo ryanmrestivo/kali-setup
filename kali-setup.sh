@@ -209,7 +209,8 @@ pip3 install -r requirements.txt
 # ./koadic
 
 echo "\n\n\nInstalling Sliver\n"
-sudo bash
+cd /home/kali/Desktop/kali-setup/
+sudo bash install
 rm -rf install
 
 echo "\n\n\nDownloads to /opt/_not_installed/\n"
@@ -318,7 +319,6 @@ echo "\n\n\nInstalling reconftw\n"
 sudo git clone https://github.com/six2dez/reconftw.git /opt/reconftw
 cd /opt/reconftw
 ./install.sh
-
 
 # vulsvan
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
