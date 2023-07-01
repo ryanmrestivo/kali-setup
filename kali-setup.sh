@@ -29,14 +29,14 @@ yes | sudo apt -q upgrade
 sudo apt-get -q -y install git perl
 
 # Install Go
-echo "\n\n\nInstalling Go\n"
+echo "Installing Go"
 curl -O https://golang.org/dl/go1.16.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.16.linux-amd64.tar.gz
 rm go1.16.linux-amd64.tar.gz
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 
-echo "\n\n\nInstalling Basic/Other Tools\n"
+echo "Installing Basic/Other Tools"
 
 # Install Basic/Other Tools
 sudo apt-get -q -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin tree htop bleachbit gdu nodejs
@@ -48,97 +48,97 @@ pip3 install name-that-hash search-that-hash
 python2 -m pip install pipenv
 python3 -m pip install pipenv mitmproxy
 
-echo "\n\n\nInstalling searchsploit\n"
+echo "Installing searchsploit"
 sudo apt -q update && sudo apt -q -y install exploitdb
-echo "\n\n\nUpgrading searchsploit\n"
+echo "Upgrading searchsploit"
 searchsploit -u
 
-echo "\n\n\nInstalling Beta AutoRecon\n"
+echo "Installing Beta AutoRecon"
 sudo git clone --branch beta https://github.com/Tib3rius/AutoRecon /opt/autorecon
 cd /opt/autorecon
 sudo git pull
 sudo git checkout beta
 sudo python3 -m pip install -r requirements.txt
 
-echo "\n\n\nInstalling nmapAutomator\n"
+echo "Installing nmapAutomator"
 sudo git clone https://github.com/21y4d/nmapAutomator.git /opt/nmapautomator/
 sudo ln -s /opt/nmapautomator/nmapAutomator.sh /usr/local/bin/
 
-echo "\n\n\nDownloading RED_HAWK\n"
+echo "Downloading RED_HAWK"
 sudo git clone https://github.com/Tuhinshubhra/RED_HAWK.git /opt/redhawk
 
-echo "\n\n\nDownloading One-Lin3r\n"
+echo "Downloading One-Lin3r"
 sudo git clone https://github.com/D4Vinci/One-Lin3r.git /opt/one-liner
 pip install one-lin3r
 
-echo "\n\n\nDownloading scant3r\n"
+echo "Downloading scant3r"
 sudo git clone https://github.com/knassar702/scant3r /opt/scanter
 cd /opt/scanter
 pip3 install -r requirements.txt
 
-echo "\n\n\nInstalling takeover\n"
+echo "Installing takeover"
 sudo git clone https://github.com/m4ll0k/takeover.git /opt/takeover
 cd /opt/takeover
 python3 setup.py install
 
-echo "\n\n\nInstalling bashtop\n"
+echo "Installing bashtop"
 sudo git clone https://github.com/aristocratos/bashtop.git /opt/bashtop
 cd /opt/bashtop/DEB
 ./build
 
-echo "\n\n\nInstalling dnsrecon\n"
+echo "Installing dnsrecon"
 sudo git clone https://github.com/darkoperator/dnsrecon.git /opt/dnsrecon
 cd /opt/dnsrecon/
 pip3 install -r requirements.txt
 
-echo "\n\n\nInstalling dnstwist\n"
+echo "Installing dnstwist"
 sudo git clone https://github.com/elceef/dnstwist.git /opt/dnstwist
 sudo apt -q -y install python3-dnspython python3-geoip python3-whois python3-requests python3-ssdeep
 cd /opt/dnstwist/
 pip3 install -r requirements.txt
 
-echo "\n\n\nInstalling AutoPWN-Suite\n"
+echo "Installing AutoPWN-Suite"
 pip install autopwn-suite
 
-echo "\n\n\nInstalling eternal_scanner\n"
+echo "Installing eternal_scanner"
 sudo git clone https://github.com/peterpt/eternal_scanner.git /opt/eternalscanner
 cd /opt/eternalscanner
 sudo apt -q install masscan wget python-pip python-crypto python-impacket python-pyasn1-modules netcat
 pip install crypto impacket pyasn1-modules
 chmod +x escan
 
-echo "\n\n\nInstalling ispy\n"
+echo "Installing ispy"
 sudo git clone https://github.com/Cyb0r9/ispy.git /opt/ispy
 cd /opt/ispy
 chmod +x setup.sh ispy
 
-echo "\n\n\nInstalling rapidscan\n"
+echo "Installing rapidscan"
 sudo git clone https://github.com/skavngr/rapidscan.git /opt/rapidscan
 cd /opt/rapidscan
 chmod +x rapidscan.py
 
-echo "\n\n\nInstalling sandmap\n"
+echo "Installing sandmap"
 sudo git clone https://github.com/trimstray/sandmap.git /opt/sandmap
 cd /opt/sandmap
 sudo apt -q -y install xterm
 chmod +x setup.sh
 ./setup.sh install
 
-echo "\n\n\nInstalling magicRecon\n"
+echo "Installing magicRecon"
 sudo git clone https://github.com/robotshell/magicRecon /opt/magicRecon
 cd /opt/magicRecon
 chmod +x install.sh
 ./install.sh
 
-echo "\n\n\nInstalling spiderfoot\n"
+echo "Installing spiderfoot"
 sudo git clone https://github.com/smicallef/spiderfoot.git /opt/spiderfoot
 cd /opt/spiderfoot
 pip3 install -r requirements.txt
 
-echo "\n\n\nInstalling bbot\n"
+echo "Installing bbot"
 pip install bbot
 
-echo "\n\n\nInstalling Osmedeus\n"
+echo "Installing Osmedeus"
 sudo git clone https://github.com/j3ssie/Osmedeus.git /opt/osmedeus
 cd /opt/osmedeus/
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/osmedeus/osmedeus-base/master/install.sh)"
@@ -147,12 +147,12 @@ sudo git clone --depth=1 https://github.com/j3ssie/osmedeus $GOPATH/src/github.c
 cd $GOPATH/src/github.com/j3ssie/osmedeus
 make build
 
-echo "\n\n\nInstalling malwoverview\n"
+echo "Installing malwoverview"
 sudo git clone https://github.com/alexandreborges/malwoverview.git /opt/malwoverview
 cd /opt/malwoverview
 pip install -r requirements.txt
 
-echo "\n\n\nInstalling nuclei\n"
+echo "Installing nuclei"
 sudo git clone https://github.com/projectdiscovery/nuclei.git /opt/nuclei
 go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 
@@ -161,12 +161,12 @@ cd /opt/BugBountyScanner
 chmod +x BugBountyScanner.sh setup.sh
 ./setup.sh -t /custom/tools/dir
 
-echo "\n\n\nInstalling Vailyn\n"
+echo "Installing Vailyn"
 sudo git clone https://github.com/VainlyStrain/Vailyn /opt/Vailyn
 cd /opt/Vailyn
 pip install -r requirements.txt
 
-echo "\n\n\nInstalling 3klCon\n"
+echo "Installing 3klCon"
 sudo git clone https://github.com/eslam3kl/3klCon.git /opt/3lckon/
 cd /opt/3lckon/
 chmod +x install_tools.sh
@@ -175,26 +175,26 @@ sudo apt-get -q install jq nmap phantomjs npm chromium parallel
 pip3 install npm
 npm i -g wappalyzer wscat
 
-echo "\n\n\nInstalling hoaxshell\n"
+echo "Installing hoaxshell"
 sudo git clone https://github.com/t3l3machus/hoaxshell /opt/hoaxshell
 cd /opt/hoaxshell
 pip3 install -r requirements.txt
 chmod +x hoaxshell.py
 
-echo "\n\n\nInstalling frogy\n"
+echo "Installing frogy"
 sudo git clone https://github.com/iamthefrogy/frogy.git /opt/frogy
 cd /opt/frogy/
 chmod +x install.sh
 ./install.sh
 
-echo "\n\n\nInstalling Garud\n"
+echo "Installing Garud"
 sudo git clone https://github.com/R0X4R/Garud.git /opt/Garud
 cd /opt/Garud/
 chmod +x garud install.sh
 sudo mv garud /usr/bin/
 ./install.sh
 
-echo "\n\n\nInstalling Havoc\n"
+echo "Installing Havoc"
 git clone https://github.com/HavocFramework/Havoc.git /opt/HavocFramework/Havoc
 sudo apt install -y git build-essential apt-utils cmake libfontconfig1 libglu1-mesa-dev libgtest-dev libspdlog-dev libboost-all-dev libncurses5-dev libgdbm-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev mesa-common-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5websockets5 libqt5websockets5-dev qtdeclarative5-dev golang-go qtbase5-dev libqt5websockets5-dev python3-dev libboost-all-dev mingw-w64 nasm
 # Build the client Binary (From Havoc Root Directory)
@@ -202,120 +202,120 @@ sudo apt install -y git build-essential apt-utils cmake libfontconfig1 libglu1-m
 # Run the client
 # ./havoc client
 
-echo "\n\n\nInstalling Koadic\n"
+echo "Installing Koadic"
 git clone https://github.com/ryanmrestivo/koadic.git /opt/koadic
 cd koadic
 pip3 install -r requirements.txt
 # ./koadic
 
-echo "\n\n\nInstalling Sliver\n"
+echo "Installing Sliver"
 cd /home/kali/Desktop/kali-setup/
 sudo bash install
 rm -rf install
 
-echo "\n\n\nDownloads to /opt/_not_installed/\n"
-echo "\n\n\nDownloads to /opt/_not_installed/\n"
-echo "\n\n\nDownloads to /opt/_not_installed/\n"
+echo "Downloads to /opt/_not_installed/"
+echo "Downloads to /opt/_not_installed/"
+echo "Downloads to /opt/_not_installed/"
 # Manual steps might be needed here. Check the comments in the original scripts.
 
-echo "\n\n\nDownloading venom\n"
+echo "Downloading venom"
 sudo git clone https://github.com/r00t-3xp10it/venom.git /opt/_not_installed/venom
 # Manual steps might be needed here. Check the comments in the original script.
 
-echo "\n\n\nDownloading ReNgine\n"
+echo "Downloading ReNgine"
 git clone https://github.com/yogeshojha/rengine /opt/_not_installed
 # nano .env
 # Edit the dotenv file, please make sure to change the password for postgresql POSTGRES_PASSWORD!
 # sudo ./install.sh
 # reNgine can be accessed from https://127.0.0.1 
 
-echo "\n\n\nDownloading Purple-Pwny\n"
+echo "Downloading Purple-Pwny"
 sudo git clone https://github.com/sahullander/Purple-Pwny.git /opt/_not_installed/Purple-Pwny
 
-echo "\n\n\nDownloading SILENTTRINITY\n"
+echo "Downloading SILENTTRINITY"
 sudo git clone https://github.com/byt3bl33d3r/SILENTTRINITY.git /opt/_not_installed/silenttrinity
 
-echo "\n\n\nDownloading vulscan\n"
+echo "Downloading vulscan"
 sudo git clone https://github.com/scipag/vulscan.git /opt/_not_installed/vulscan
 
-echo "\n\n\nDownloading tidos-framework\n"
+echo "Downloading tidos-framework"
 sudo git clone https://github.com/0xinfection/tidos-framework.git /opt/_not_installed/tidos-framework
 
-echo "\n\n\nDownloading shennina\n"
+echo "Downloading shennina"
 sudo git clone https://github.com/mazen160/shennina.git /opt/_not_installed/shennina
 pip3 install tensorflow
 
-echo "\n\n\nDownloading GPT_Vuln-analyzer\n"
+echo "Downloading GPT_Vuln-analyzer"
 sudo git clone https://github.com/morpheuslord/GPT_Vuln-analyzer.git /opt/_not_installed/GPT_Vuln-analyzer
 
-echo "\n\n\nDownloading TheFatRat\n"
+echo "Downloading TheFatRat"
 sudo git clone https://github.com/Screetsec/TheFatRat.git /opt/_not_installed/thefatrat
 
-echo "\n\n\nDownloading OneForAll\n"
+echo "Downloading OneForAll"
 sudo git clone https://github.com/shmilylty/OneForAll.git /opt/_not_installed/oneforall
 
-echo "\n\n\nDownloading Cr3dOv3r\n"
+echo "Downloading Cr3dOv3r"
 sudo git clone https://github.com/D4Vinci/Cr3dOv3r.git /opt/_not_installed/cr3dOv3r
 
-echo "\n\n\nDownloading Empire\n"
+echo "Downloading Empire"
 sudo git clone https://github.com/BC-SECURITY/Empire.git /opt/_not_installed/empire
 
-echo "\n\n\nDownloading Sudomy\n"
+echo "Downloading Sudomy"
 sudo git clone --recursive https://github.com/screetsec/Sudomy.git /opt/_not_installed/Sudomy
 
-echo "\n\n\nDownloading SpookFlare\n"
+echo "Downloading SpookFlare"
 sudo git clone https://github.com/hlldz/SpookFlare.git /opt/_not_installed/spookflare
 
-echo "\n\n\nDownloading Unicorn\n"
+echo "Downloading Unicorn"
 sudo git clone https://github.com/trustedsec/unicorn.git /opt/_not_installed/unicorn
 
-echo "\n\n\nDownloading Cuteit\n"
+echo "Downloading Cuteit"
 sudo git clone https://github.com/D4Vinci/Cuteit.git /opt/cuteit
 
-echo "\n\n\nDownloading Cloakify\n"
+echo "Downloading Cloakify"
 sudo git clone https://github.com/TryCatchHCF/Cloakify.git /opt/_not_installed/cloakify
 
-echo "\n\n\nDownloading CHAOS\n"
+echo "Downloading CHAOS"
 sudo git clone https://github.com/tiagorlampert/CHAOS.git /opt/_not_installed/chaos
 # Run
 # PORT=8080 DATABASE_NAME=chaos go run cmd/chaos/main.go
 # /opt/CHAOS/client/main.go
 # After running go to http://localhost:8080 and login with the default username: ***admin*** and password: ***changeme***.
 
-echo "\n\n\nDownloading Sublist3r\n"
+echo "Downloading Sublist3r"
 sudo git clone https://github.com/aboul3la/Sublist3r.git /opt/_not_installed/sublister
 
-echo "\n\n\nDownloading msfpc\n"
+echo "Downloading msfpc"
 sudo git clone https://github.com/g0tmi1k/msfpc /opt/_not_installed/msfvenom-payload-creator
 
-echo "\n\n\nDownloading recon-ninja\n"
+echo "Downloading recon-ninja"
 git clone https://github.com/tess-ss/recon-ninja.git /opt/_not_installed/recon-ninja
 
-echo "\n\n\nDownloading gmailc2\n"
+echo "Downloading gmailc2"
 git clone  https://github.com/ryanmrestivo/gmailc2.git /opt/_not_installed/gmailc2
 
-echo "\n\n\nDownloading Remot3d\n"
+echo "Downloading Remot3d"
 sudo git clone https://github.com/KeepWannabe/Remot3d.git /opt/remot3d
 
-echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
+echo " Downloading - r00t-3xp10it/resource_files (mosquito) "
 # https://github.com/r00t-3xp10it/resource_files
 git clone  https://github.com/r00t-3xp10it/resource_files /opt/_not_installed/mosquito
 # cd mosquito & find ./ -name "*.sh" -exec chmod +x {} \;
 
 #Interactive installs
 
-echo "\n\n\nInstalling Veil-Framework\n"
+echo "Installing Veil-Framework"
 sudo git clone https://github.com/Veil-Framework/Veil.git /opt/Veil
 cd /opt/Veil/config/
 ./setup.sh --force --silent
 sudo apt -q -y install veil
 
-echo "\n\n\nInstalling discover\n"
+echo "Installing discover"
 sudo git clone https://github.com/leebaird/discover /opt/discover/
 cd /opt/discover/
 ./update.sh
 
-echo "\n\n\nInstalling reconftw\n"
+echo "Installing reconftw"
 sudo git clone https://github.com/six2dez/reconftw.git /opt/reconftw
 cd /opt/reconftw
 ./install.sh
@@ -354,20 +354,20 @@ cd /opt/reconftw
 # docker run -it rustscan/rustscan
 
 # Get bookmarks from tl-osint
-echo "\n\n\nDownloading bookmarks from tl-osint\n"
+echo "Downloading bookmarks from tl-osint"
 wget -O /home/kali/Desktop/bookmarks.html https://raw.githubusercontent.com/tracelabs/tlosint-live/master/bookmarks.html
 
 # get nmap-bootstrap-xsl
-echo "\n\n\nDownloading nmap-bootstrap-xsl\n"
+echo "Downloading nmap-bootstrap-xsl"
 git clone https://github.com/ryanmrestivo/nmap-bootstrap-xsl.git /home/kali/Desktop/
 
 # Create symbolic links
-echo "\n\n\nCreating symbolic links\n"
+echo "Creating symbolic links"
 ln -s /opt/ /home/kali/Desktop/opt
 ln -s /opt/_not_installed /home/kali/Desktop/opt/_not_installed
 
 # Setup file structures
-echo "\n\n\nSetting permissions\n"
+echo "Setting permissions"
 sudo chmod -R 755 /opt
 
 find /home/kali/Desktop/kali-setup/Desktop/ -type f -exec mv {} ~/Desktop \;
@@ -383,19 +383,19 @@ docker volume create portainer_data
 sudo systemctl enable docker --now
 
 # Cleanup
-echo "\n\n\nCleaning up and running final update checks\n"
+echo "Cleaning up and running final update checks"
 sudo apt update
 sudo apt upgrade -y
 sudo apt autoremove -y
 
 # Removing unnecessary directories
-echo "\n\n\nRemoving unnecessary directories\n"
+echo "Removing unnecessary directories"
 sudo rm -rf /opt/google
 sudo rm -rf /opt/requests
 
 # Reboot prompt
-echo "\n\n\nFinished! The system will reboot in 60 seconds!\n"
-echo "\n\n\nFinished! The system will reboot in 60 seconds!\n"
-echo "\n\n\nFinished! The system will reboot in 60 seconds!\n"
+echo "Finished! The system will reboot in 60 seconds!"
+echo "Finished! The system will reboot in 60 seconds!"
+echo "Finished! The system will reboot in 60 seconds!"
 sleep 60
 sudo reboot
