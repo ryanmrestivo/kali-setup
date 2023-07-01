@@ -150,11 +150,6 @@ echo "Installing nuclei"
 sudo git clone https://github.com/projectdiscovery/nuclei.git /opt/nuclei
 go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 
-sudo git clone https://github.com/chvancooten/BugBountyScanner.git /opt/BugBountyScanner
-cd /opt/BugBountyScanner
-chmod +x BugBountyScanner.sh setup.sh
-./setup.sh -t /custom/tools/dir
-
 echo "Installing Vailyn"
 sudo git clone https://github.com/VainlyStrain/Vailyn /opt/Vailyn
 cd /opt/Vailyn
@@ -319,6 +314,11 @@ sudo git clone https://github.com/robotshell/magicRecon /opt/magicRecon
 cd /opt/magicRecon
 chmod +x install.sh
 ./install.sh
+
+sudo git clone https://github.com/chvancooten/BugBountyScanner.git /opt/BugBountyScanner
+cd /opt/BugBountyScanner
+chmod +x BugBountyScanner.sh setup.sh
+./setup.sh -t /custom/tools/dir
 
 # vulsvan
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
