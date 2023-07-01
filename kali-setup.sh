@@ -67,11 +67,6 @@ sudo ln -s /opt/nmapautomator/nmapAutomator.sh /usr/local/bin/
 echo "\n\n\nDownloading RED_HAWK\n"
 sudo git clone https://github.com/Tuhinshubhra/RED_HAWK.git /opt/redhawk
 
-echo "\n\n\nInstalling discover\n"
-sudo git clone https://github.com/leebaird/discover /opt/discover/
-cd /opt/discover/
-./update.sh
-
 echo "\n\n\nDownloading One-Lin3r\n"
 sudo git clone https://github.com/D4Vinci/One-Lin3r.git /opt/one-liner
 pip install one-lin3r
@@ -311,11 +306,18 @@ echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
 git clone  https://github.com/r00t-3xp10it/resource_files /opt/_not_installed/mosquito
 # cd mosquito & find ./ -name "*.sh" -exec chmod +x {} \;
 
+#Interactive installs
+
 echo "\n\n\nInstalling Veil-Framework\n"
 sudo git clone https://github.com/Veil-Framework/Veil.git /opt/Veil
 cd /opt/Veil/config/
 ./setup.sh --force --silent
 sudo apt -q -y install veil
+
+echo "\n\n\nInstalling discover\n"
+sudo git clone https://github.com/leebaird/discover /opt/discover/
+cd /opt/discover/
+./update.sh
 
 # vulsvan
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
@@ -366,6 +368,14 @@ ln -s /opt/_not_installed /home/kali/Desktop/opt/_not_installed
 # Setup file structures
 echo "\n\n\nSetting permissions\n"
 sudo chmod -R 755 /opt
+
+find /home/kali/Desktop/kali-setup/Desktop/ -type f -exec mv {} ~/Desktop \;
+rm -rf /home/kali/Desktop/kali-setup/Desktop/
+
+find /home/kali/Desktop/kali-setup/Wallpapers/  -type f -exec mv {} ~/Desktop \;
+rm -rf /home/kali/Desktop/kali-setup/Wallpapers/
+
+mv /home/kali/Desktop/kali-setup/setup.sh ~/Desktop
 
 # Docker setup
 docker volume create portainer_data
