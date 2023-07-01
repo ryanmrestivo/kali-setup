@@ -317,6 +317,9 @@ sudo git clone https://github.com/g0tmi1k/msfpc /opt/_not_installed/msfvenom-pay
 echo "\n\n\nDownloading recon-ninja\n"
 git clone https://github.com/tess-ss/recon-ninja.git /opt/_not_installed/recon-ninja
 
+echo "\n\n\nDownloading gmailc2\n"
+git clone  https://github.com/ryanmrestivo/gmailc2.git /opt/_not_installed/gmailc2
+
 echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
 # https://github.com/r00t-3xp10it/resource_files
 git clone  https://github.com/r00t-3xp10it/resource_files /opt/_not_installed/mosquito
@@ -358,6 +361,10 @@ git clone  https://github.com/r00t-3xp10it/resource_files /opt/_not_installed/mo
 # Get bookmarks from tl-osint
 echo "\n\n\nDownloading bookmarks from tl-osint\n"
 wget -O /home/kali/Desktop/bookmarks.html https://raw.githubusercontent.com/tracelabs/tlosint-live/master/bookmarks.html
+
+# get nmap-bootstrap-xsl
+echo "\n\n\nDownloading nmap-bootstrap-xsl\n"
+git clone https://github.com/ryanmrestivo/nmap-bootstrap-xsl.git /home/kali/Desktop/
 
 # Create symbolic links
 echo "\n\n\nCreating symbolic links\n"
