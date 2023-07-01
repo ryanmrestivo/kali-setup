@@ -283,9 +283,6 @@ git clone https://github.com/tess-ss/recon-ninja.git /opt/_not_installed/recon-n
 echo "Downloading gmailc2"
 git clone  https://github.com/ryanmrestivo/gmailc2.git /opt/_not_installed/gmailc2
 
-echo "Downloading Remot3d"
-sudo git clone https://github.com/KeepWannabe/Remot3d.git /opt/remot3d
-
 echo " Downloading - r00t-3xp10it/resource_files (mosquito) "
 # https://github.com/r00t-3xp10it/resource_files
 git clone  https://github.com/r00t-3xp10it/resource_files /opt/_not_installed/mosquito
@@ -319,6 +316,9 @@ sudo git clone https://github.com/chvancooten/BugBountyScanner.git /opt/BugBount
 cd /opt/BugBountyScanner
 chmod +x BugBountyScanner.sh setup.sh
 ./setup.sh -t /custom/tools/dir
+
+echo "Downloading Remot3d"
+sudo git clone https://github.com/KeepWannabe/Remot3d.git /opt/remot3d
 
 # vulsvan
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
