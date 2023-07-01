@@ -124,12 +124,6 @@ sudo apt -q -y install xterm
 chmod +x setup.sh
 ./setup.sh install
 
-echo "Installing magicRecon"
-sudo git clone https://github.com/robotshell/magicRecon /opt/magicRecon
-cd /opt/magicRecon
-chmod +x install.sh
-./install.sh
-
 echo "Installing spiderfoot"
 sudo git clone https://github.com/smicallef/spiderfoot.git /opt/spiderfoot
 cd /opt/spiderfoot
@@ -318,6 +312,12 @@ cd /opt/discover/
 echo "Installing reconftw"
 sudo git clone https://github.com/six2dez/reconftw.git /opt/reconftw
 cd /opt/reconftw
+./install.sh
+
+echo "Installing magicRecon"
+sudo git clone https://github.com/robotshell/magicRecon /opt/magicRecon
+cd /opt/magicRecon
+chmod +x install.sh
 ./install.sh
 
 # vulsvan
