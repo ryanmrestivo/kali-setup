@@ -220,59 +220,73 @@ chmod +x garud install.sh
 sudo mv garud /usr/bin/
 ./install.sh
 
+echo "\n\n\nInstalling Havoc\n"
+git clone https://github.com/HavocFramework/Havoc.git /opt/HavocFramework/Havoc
+sudo apt install -y git build-essential apt-utils cmake libfontconfig1 libglu1-mesa-dev libgtest-dev libspdlog-dev libboost-all-dev libncurses5-dev libgdbm-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev mesa-common-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5websockets5 libqt5websockets5-dev qtdeclarative5-dev golang-go qtbase5-dev libqt5websockets5-dev python3-dev libboost-all-dev mingw-w64 nasm
+# Build the client Binary (From Havoc Root Directory)
+# make client-build
+# Run the client
+# ./havoc client
+
 echo "\n\n\nInstalling reconftw\n"
 sudo git clone https://github.com/six2dez/reconftw.git /opt/reconftw
 cd /opt/reconftw
 ./install.sh
 
+echo "\n\n\nInstalling Koadic\n"
+git clone https://github.com/ryanmrestivo/koadic.git /opt/koadic
+cd koadic
+pip3 install -r requirements.txt
+
+echo "\n\n\nInstalling Sliver\n"
+sudo bash
+rm -rf install
+
 echo "\n\n\nDownloads to /opt/_not_installed/\n"
 echo "\n\n\nDownloads to /opt/_not_installed/\n"
 echo "\n\n\nDownloads to /opt/_not_installed/\n"
+# Manual steps might be needed here. Check the comments in the original scripts.
+
+echo "\n\n\nDownloading ReNgine\n"
+git clone https://github.com/yogeshojha/rengine
+# nano .env
+# Edit the dotenv file, please make sure to change the password for postgresql POSTGRES_PASSWORD!
+# sudo ./install.sh
+# reNgine can be accessed from https://127.0.0.1 
 
 echo "\n\n\nDownloading Purple-Pwny\n"
 sudo git clone https://github.com/sahullander/Purple-Pwny.git /opt/_not_installed/Purple-Pwny
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading SILENTTRINITY\n"
 sudo git clone https://github.com/byt3bl33d3r/SILENTTRINITY.git /opt/_not_installed/silenttrinity
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading vulscan\n"
 sudo git clone https://github.com/scipag/vulscan.git /opt/_not_installed/vulscan
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading tidos-framework\n"
 sudo git clone https://github.com/0xinfection/tidos-framework.git /opt/_not_installed/tidos-framework
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading shennina\n"
 sudo git clone https://github.com/mazen160/shennina.git /opt/_not_installed/shennina
 pip3 install tensorflow
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading TheFatRat\n"
 sudo git clone https://github.com/Screetsec/TheFatRat.git /opt/_not_installed/thefatrat
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading OneForAll\n"
 sudo git clone https://github.com/shmilylty/OneForAll.git /opt/_not_installed/oneforall
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading Cr3dOv3r\n"
 sudo git clone https://github.com/D4Vinci/Cr3dOv3r.git /opt/_not_installed/cr3dOv3r
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading Empire\n"
 sudo git clone https://github.com/BC-SECURITY/Empire.git /opt/_not_installed/empire
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading Sudomy\n"
 sudo git clone --recursive https://github.com/screetsec/Sudomy.git /opt/_not_installed/Sudomy
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading SpookFlare\n"
 sudo git clone https://github.com/hlldz/SpookFlare.git /opt/_not_installed/spookflare
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading Unicorn\n"
 sudo git clone https://github.com/trustedsec/unicorn.git /opt/_not_installed/unicorn
@@ -282,7 +296,6 @@ sudo git clone https://github.com/D4Vinci/Cuteit.git /opt/cuteit
 
 echo "\n\n\nDownloading Cloakify\n"
 sudo git clone https://github.com/TryCatchHCF/Cloakify.git /opt/_not_installed/cloakify
-# Manual steps might be needed here. Check the comments in the original script.
 
 echo "\n\n\nDownloading CHAOS\n"
 sudo git clone https://github.com/tiagorlampert/CHAOS.git /opt/_not_installed/chaos
@@ -292,7 +305,9 @@ sudo git clone https://github.com/aboul3la/Sublist3r.git /opt/_not_installed/sub
 
 echo "\n\n\nDownloading msfpc\n"
 sudo git clone https://github.com/g0tmi1k/msfpc /opt/_not_installed/msfvenom-payload-creator
-# Manual steps might be needed here. Check the comments in the original script.
+
+echo "\n\n\nDownloading recon-ninja\n"
+git clone https://github.com/tess-ss/recon-ninja.git /opt/_not_installed/recon-ninja
 
 echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
 # https://github.com/r00t-3xp10it/resource_files
