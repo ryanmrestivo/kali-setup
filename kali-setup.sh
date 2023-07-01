@@ -14,7 +14,7 @@
 # Prevent Linux from going to sleep
 # Power Manager -> Display -> Slide everything left to "never"
 
-echo "\n\n\nSystem Update & Setup"
+echo "System Update & Setup"
 
 # Setting debconf to non-interactive mode to avoid prompts during installation
 echo '* libraries/restart-without-asking boolean true' | sudo debconf-set-selections
@@ -40,10 +40,6 @@ echo "\n\n\nInstalling Basic/Other Tools\n"
 
 # Install Basic/Other Tools
 sudo apt-get -q -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin tree htop bleachbit gdu nodejs
-
-# Docker setup
-docker volume create portainer_data
-sudo systemctl enable docker --now
 
 # Install Python packages and tools
 pip install --upgrade pip
@@ -108,12 +104,6 @@ pip3 install -r requirements.txt
 
 echo "\n\n\nInstalling AutoPWN-Suite\n"
 pip install autopwn-suite
-
-echo "\n\n\nInstalling Veil-Framework\n"
-sudo git clone https://github.com/Veil-Framework/Veil.git /opt/Veil
-cd /opt/Veil/config/
-./setup.sh --force --silent
-sudo apt -q -y install veil
 
 echo "\n\n\nInstalling eternal_scanner\n"
 sudo git clone https://github.com/peterpt/eternal_scanner.git /opt/eternalscanner
@@ -325,6 +315,12 @@ echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
 git clone  https://github.com/r00t-3xp10it/resource_files /opt/_not_installed/mosquito
 # cd mosquito & find ./ -name "*.sh" -exec chmod +x {} \;
 
+echo "\n\n\nInstalling Veil-Framework\n"
+sudo git clone https://github.com/Veil-Framework/Veil.git /opt/Veil
+cd /opt/Veil/config/
+./setup.sh --force --silent
+sudo apt -q -y install veil
+
 # vulsvan
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
 # vulners
@@ -374,6 +370,10 @@ ln -s /opt/_not_installed /home/kali/Desktop/opt/_not_installed
 # Setup file structures
 echo "\n\n\nSetting permissions\n"
 sudo chmod -R 755 /opt
+
+# Docker setup
+docker volume create portainer_data
+sudo systemctl enable docker --now
 
 # Cleanup
 echo "\n\n\nCleaning up and running final update checks\n"
