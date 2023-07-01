@@ -202,11 +202,6 @@ sudo apt install -y git build-essential apt-utils cmake libfontconfig1 libglu1-m
 # Run the client
 # ./havoc client
 
-echo "\n\n\nInstalling reconftw\n"
-sudo git clone https://github.com/six2dez/reconftw.git /opt/reconftw
-cd /opt/reconftw
-./install.sh
-
 echo "\n\n\nInstalling Koadic\n"
 git clone https://github.com/ryanmrestivo/koadic.git /opt/koadic
 cd koadic
@@ -318,6 +313,12 @@ echo "\n\n\nInstalling discover\n"
 sudo git clone https://github.com/leebaird/discover /opt/discover/
 cd /opt/discover/
 ./update.sh
+
+echo "\n\n\nInstalling reconftw\n"
+sudo git clone https://github.com/six2dez/reconftw.git /opt/reconftw
+cd /opt/reconftw
+./install.sh
+
 
 # vulsvan
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
