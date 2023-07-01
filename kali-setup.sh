@@ -36,6 +36,9 @@ rm go1.16.linux-amd64.tar.gz
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 
+# Installing npm
+sudo apt install Node.js 
+
 echo "Installing Basic/Other Tools"
 
 # Install Basic/Other Tools
