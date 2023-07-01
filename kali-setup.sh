@@ -299,6 +299,10 @@ sudo git clone https://github.com/TryCatchHCF/Cloakify.git /opt/_not_installed/c
 
 echo "\n\n\nDownloading CHAOS\n"
 sudo git clone https://github.com/tiagorlampert/CHAOS.git /opt/_not_installed/chaos
+# Run
+# PORT=8080 DATABASE_NAME=chaos go run cmd/chaos/main.go
+# /opt/CHAOS/client/main.go
+# After running go to http://localhost:8080 and login with the default username: ***admin*** and password: ***changeme***.
 
 echo "\n\n\nDownloading Sublist3r\n"
 sudo git clone https://github.com/aboul3la/Sublist3r.git /opt/_not_installed/sublister
@@ -318,12 +322,6 @@ git clone  https://github.com/r00t-3xp10it/resource_files /opt/_not_installed/mo
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
 # vulners
 # nmap -sV --script vulners --script-args mincvss=5.0 scanme.nmap.org
-
-# CHAOS Usage
-# Run
-# PORT=8080 DATABASE_NAME=chaos go run cmd/chaos/main.go
-# /opt/CHAOS/client/main.go
-# After running go to http://localhost:8080 and login with the default username: ***admin*** and password: ***changeme***.
 
 # Setup Docker Tools
 
