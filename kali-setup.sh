@@ -371,10 +371,8 @@ echo "Setting permissions"
 sudo chmod -R 755 /opt
 
 find /home/kali/Desktop/kali-setup/Desktop/ -type f -exec mv {} ~/Desktop \;
-rm -rf /home/kali/Desktop/kali-setup/Desktop/
 
 find /home/kali/Desktop/kali-setup/Wallpapers/  -type f -exec mv {} ~/Desktop \;
-rm -rf /home/kali/Desktop/kali-setup/Wallpapers/
 
 mv /home/kali/Desktop/kali-setup/setup.sh ~/Desktop
 
