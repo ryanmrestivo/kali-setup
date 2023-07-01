@@ -203,10 +203,6 @@ cd /opt/hoaxshell
 pip3 install -r requirements.txt
 chmod +x hoaxshell.py
 
-echo "\n\n\nDownloading venom\n"
-sudo git clone https://github.com/r00t-3xp10it/venom.git /opt/_not_installed/venom
-# Manual steps might be needed here. Check the comments in the original script.
-
 echo "\n\n\nInstalling frogy\n"
 sudo git clone https://github.com/iamthefrogy/frogy.git /opt/frogy
 cd /opt/frogy/
@@ -247,8 +243,12 @@ echo "\n\n\nDownloads to /opt/_not_installed/\n"
 echo "\n\n\nDownloads to /opt/_not_installed/\n"
 # Manual steps might be needed here. Check the comments in the original scripts.
 
+echo "\n\n\nDownloading venom\n"
+sudo git clone https://github.com/r00t-3xp10it/venom.git /opt/_not_installed/venom
+# Manual steps might be needed here. Check the comments in the original script.
+
 echo "\n\n\nDownloading ReNgine\n"
-git clone https://github.com/yogeshojha/rengine
+git clone https://github.com/yogeshojha/rengine /opt/_not_installed
 # nano .env
 # Edit the dotenv file, please make sure to change the password for postgresql POSTGRES_PASSWORD!
 # sudo ./install.sh
