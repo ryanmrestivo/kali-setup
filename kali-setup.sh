@@ -140,13 +140,6 @@ sudo git clone https://github.com/smicallef/spiderfoot.git /opt/spiderfoot
 cd /opt/spiderfoot
 pip3 install -r requirements.txt
 
-echo "\n\n\nInstalling Remot3d\n"
-sudo git clone https://github.com/KeepWannabe/Remot3d.git /opt/remot3d
-cd /opt/remot3d
-chmod +x setup.sh
-./setup.sh
-chmod +x Remot3d.sh
-
 echo "\n\n\nInstalling bbot\n"
 pip install bbot
 
@@ -309,6 +302,9 @@ git clone https://github.com/tess-ss/recon-ninja.git /opt/_not_installed/recon-n
 
 echo "\n\n\nDownloading gmailc2\n"
 git clone  https://github.com/ryanmrestivo/gmailc2.git /opt/_not_installed/gmailc2
+
+echo "\n\n\nDownloading Remot3d\n"
+sudo git clone https://github.com/KeepWannabe/Remot3d.git /opt/remot3d
 
 echo "\n\n\n Downloading - r00t-3xp10it/resource_files (mosquito) \n"
 # https://github.com/r00t-3xp10it/resource_files
