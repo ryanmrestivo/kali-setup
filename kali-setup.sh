@@ -233,6 +233,7 @@ echo "\n\n\nInstalling Koadic\n"
 git clone https://github.com/ryanmrestivo/koadic.git /opt/koadic
 cd koadic
 pip3 install -r requirements.txt
+# ./koadic
 
 echo "\n\n\nInstalling Sliver\n"
 sudo bash
@@ -269,6 +270,9 @@ sudo git clone https://github.com/0xinfection/tidos-framework.git /opt/_not_inst
 echo "\n\n\nDownloading shennina\n"
 sudo git clone https://github.com/mazen160/shennina.git /opt/_not_installed/shennina
 pip3 install tensorflow
+
+echo "\n\n\nDownloading GPT_Vuln-analyzer\n"
+sudo git clone https://github.com/morpheuslord/GPT_Vuln-analyzer.git /opt/_not_installed/GPT_Vuln-analyzer
 
 echo "\n\n\nDownloading TheFatRat\n"
 sudo git clone https://github.com/Screetsec/TheFatRat.git /opt/_not_installed/thefatrat
