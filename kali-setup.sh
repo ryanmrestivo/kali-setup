@@ -379,6 +379,15 @@ find /home/kali/Desktop/kali-setup/Wallpapers/  -type f -exec mv {} ~/Desktop \;
 
 mv /home/kali/Desktop/kali-setup/setup.sh ~/Desktop
 
+chmod + 777 htop.sh
+chmod + 777 searchsploit.sh
+chmod + 777 tree.sh
+chmod + 777 update.sh
+chmod + 777 bbot.sh
+chmod + 777 bashtop.sh
+chmod + 777 autopwn-suite.sh
+chmod + 777 name-that-hash.sh
+
 # Docker setup
 docker volume create portainer_data
 sudo systemctl enable docker --now
