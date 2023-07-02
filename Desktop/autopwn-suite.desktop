@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=autopwn-suite
+Comment=
+Exec=autopwn-suite
+Icon=octopi-error
+Path=
+Terminal=true
+StartupNotify=false

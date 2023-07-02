@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=bashtop
+Comment=
+Exec=bashtop
+Icon=preferences-system-windows
+Path=
+Terminal=true
+StartupNotify=false
