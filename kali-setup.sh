@@ -42,7 +42,7 @@ sudo apt install Node.js
 echo "Installing Basic/Other Tools"
 
 # Install Basic/Other Tools
-sudo apt-get -q -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin tree htop bleachbit gdu nodejs
+sudo apt-get -q -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin tree htop gdu nodejs
 
 # Install Python packages and tools
 pip install --upgrade pip
@@ -322,6 +322,8 @@ chmod +x BugBountyScanner.sh setup.sh
 
 echo "Downloading Remot3d"
 sudo git clone https://github.com/KeepWannabe/Remot3d.git /opt/remot3d
+
+bleachbit
 
 # vulsvan
 # nmap -sV --script=vulscan/vulscan.nse scanme.nmap.org
