@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=bleachbit
+Comment=
+Exec=bleachbit
+Icon=lyricfier
+Path=
+Terminal=true
+StartupNotify=false
