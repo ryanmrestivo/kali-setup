@@ -167,6 +167,13 @@ sudo apt-get -q install jq nmap phantomjs npm chromium parallel
 pip3 install npm
 npm i -g wappalyzer wscat
 
+echo "Installing Nodesub"
+npm install -g nodesub
+
+echo "installing Trufflehog"
+cd /opt/Trufflehog
+curl -sSfL https://raw.githubusercontent.com/trufflesecurity/trufflehog/main/scripts/install.sh | sh -s -- -b /usr/local/bin
+
 echo "Installing hoaxshell"
 sudo git clone https://github.com/t3l3machus/hoaxshell /opt/hoaxshell
 cd /opt/hoaxshell
