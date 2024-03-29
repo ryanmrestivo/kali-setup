@@ -133,7 +133,7 @@ cd /opt/spiderfoot
 pip3 install -r requirements.txt
 
 echo "Installing bbot"
-pip install bbot
+pipx install bbot
 
 echo "Installing Osmedeus"
 sudo git clone https://github.com/j3ssie/Osmedeus.git /opt/osmedeus
