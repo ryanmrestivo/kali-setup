@@ -137,12 +137,7 @@ pipx install bbot
 
 echo "Installing Osmedeus"
 sudo git clone https://github.com/j3ssie/Osmedeus.git /opt/osmedeus
-cd /opt/osmedeus/
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/osmedeus/osmedeus-base/master/install.sh)"
-mkdir -p $GOPATH/src/github.com/j3ssie
-sudo git clone --depth=1 https://github.com/j3ssie/osmedeus $GOPATH/src/github.com/j3ssie/osmedeus
-cd $GOPATH/src/github.com/j3ssie/osmedeus
-make build
+go install -v github.com/j3ssie/osmedeus@latest
 
 echo "Installing malwoverview"
 sudo git clone https://github.com/alexandreborges/malwoverview.git /opt/malwoverview
