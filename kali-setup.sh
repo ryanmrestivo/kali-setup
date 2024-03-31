@@ -37,7 +37,8 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 
 # Installing npm
-sudo apt install Node.js 
+sudo apt install Node.js
+npm
 
 echo "Installing Basic/Other Tools"
 
