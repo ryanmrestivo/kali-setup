@@ -122,18 +122,6 @@ for TOOL in "${TOOLS[@]}"; do
 done
 wait
 
-# Additional steps for specific tools
-cd /opt/autorecon
-sudo git checkout beta
-sudo python3 -m pip install -r requirements.txt
-
-cd /opt/nmapAutomator
-sudo ln -s nmapAutomator.sh /usr/local/bin/nmapAutomator
-
-cd /opt/3lckon
-chmod +x install_tools.sh
-./install_tools.sh
-
 # Docker setup
 echo "Setting up Docker containers..."
 docker volume create portainer_data
