@@ -112,7 +112,6 @@ TOOLS=(
   "https://github.com/aboul3la/Sublist3r"
   "https://github.com/g0tmi1k/msfpc"
   "https://github.com/tess-ss/recon-ninja"
-  "https://github.com/ryanmrestivo/gmailc2"
   "https://github.com/r00t-3xp10it/resource_files"
 )
 
@@ -134,33 +133,39 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
 echo "Downloading bookmarks from tl-osint"
 wget -O ~/Desktop/bookmarks.html https://raw.githubusercontent.com/tracelabs/tlosint-live/master/bookmarks.html
 
-# Create symbolic links
-echo "Creating symbolic links"
-ln -s /opt/ ~/Desktop/opt
-ln -s /opt/_not_installed ~/Desktop/opt/_not_installed
+# Create symbolic link to /opt
+echo "Creating symbolic link to /opt on Desktop"
+if [ -d "/opt" ]; then
+  ln -sf /opt ~/Desktop/opt
+else
+  echo "/opt directory does not exist, skipping link creation..."
+fi
 
 # Create shortcuts for additional documents
 echo "Creating shortcuts for additional documents"
 DOCUMENTS=(
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/htop.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/searchsploit.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/tree.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/update.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/bbot.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/bashtop.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/autopwn-suite.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/name-that-hash.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/htop.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/searchsploit.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/tree.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/update.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/bbot.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/bashtop.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/autopwn-suite.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/name-that-hash.sh"
 )
 
 for DOC in "${DOCUMENTS[@]}"; do
-  wget -P ~/Desktop "$DOC"
+  wget -P ~/Desktop "$DOC" || echo "Failed to download $DOC"
 done
 
 # Download wallpapers folder to Desktop
 echo "Downloading Wallpapers folder"
-git clone https://github.com/ryanmrestivo/kali-setup.git /tmp/kali-setup
-cp -r /tmp/kali-setup/Wallpapers ~/Desktop/
-rm -rf /tmp/kali-setup
+if git clone https://github.com/ryanmrestivo/kali-setup.git /tmp/kali-setup; then
+  cp -r /tmp/kali-setup/Wallpapers ~/Desktop/
+  rm -rf /tmp/kali-setup
+else
+  echo "Failed to clone kali-setup repository"
+fi
 
 # Set permissions
 echo "Setting permissions for /opt"
@@ -176,13 +181,6 @@ sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y
 # Removing unnecessary directories
 echo "Removing unnecessary directories"
 sudo rm -rf /opt/google /opt/requests
-
-# Reboot prompt
-echo "Setup complete. Do you want to reboot now? (y/n)"
-read -r REBOOT
-if [[ "$REBOOT" == "y" ]]; then
-  sudo reboot
-fi
 
 #
 # Additional Notes for Specific Tools
