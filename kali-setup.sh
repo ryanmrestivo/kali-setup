@@ -68,7 +68,6 @@ TOOLS=(
   "https://github.com/Tuhinshubhra/RED_HAWK"
   "https://github.com/D4Vinci/One-Lin3r"
   "https://github.com/knassar702/scant3r"
-  "https://github.com/m4ll0k/takeover"
   "https://github.com/aristocratos/bashtop"
   "https://github.com/darkoperator/dnsrecon"
   "https://github.com/elceef/dnstwist"
