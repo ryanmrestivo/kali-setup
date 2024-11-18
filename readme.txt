@@ -12,7 +12,7 @@ This repository contains a script designed to automate the setup of Kali Linux w
 2. Install pip by running the following command:
 	python install get-pip.py
 3. Download and execute the setup script with the following command:
-	wget https://raw.githubusercontent.com/ryanmrestivo/kali-setup/kali_setup.sh -O /home/kali/Desktop/ && chmod 777 kali_setup.sh && ./kali_setup.sh
+	curl -sSL https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/kali-setup.sh | bash
 
 ## Usage
 
