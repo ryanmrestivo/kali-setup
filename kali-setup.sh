@@ -141,28 +141,14 @@ else
   echo "/opt directory does not exist, skipping link creation..."
 fi
 
-# Create shortcuts for additional documents
-echo "Creating shortcuts for additional documents"
-DOCUMENTS=(
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/htop.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/searchsploit.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/tree.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/update.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/bbot.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/bashtop.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/autopwn-suite.sh"
-  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/scripts/name-that-hash.sh"
-)
-
-for DOC in "${DOCUMENTS[@]}"; do
-  wget -P ~/Desktop "$DOC" || echo "Failed to download $DOC"
-done
-
-# Download wallpapers folder to Desktop
-echo "Downloading Wallpapers folder"
-if git clone https://github.com/ryanmrestivo/kali-setup.git /tmp/kali-setup; then
-  cp -r /tmp/kali-setup/Wallpapers ~/Desktop/
-  rm -rf /tmp/kali-setup
+# Clone and move shortcuts for additional documents
+echo "Cloning kali-setup repository"
+REPO_DIR="$(pwd)/kali-setup"
+if git clone https://github.com/ryanmrestivo/kali-setup.git "$REPO_DIR"; then
+  echo "Moving additional documents to Desktop"
+  mv "$REPO_DIR/scripts"/* ~/Desktop/
+  mv "$REPO_DIR/Wallpapers" ~/Desktop/
+  rm -rf "$REPO_DIR"
 else
   echo "Failed to clone kali-setup repository"
 fi
