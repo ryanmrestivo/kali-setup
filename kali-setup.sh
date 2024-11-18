@@ -21,7 +21,7 @@ export DEBIAN_PRIORITY=critical
 sudo apt update -y && sudo apt upgrade -y
 
 # Install necessary tools and dependencies
-sudo apt install -y git perl tree htop gdu python3-pip curl wget docker.io npm
+sudo apt install -y git perl tree htop gdu python3-pip curl wget docker.io npm jq nmap phantomjs chromium parallel
 
 # Install Go
 GO_VERSION="1.21.0"
@@ -38,7 +38,7 @@ pip install pipenv name-that-hash search-that-hash mitmproxy autopwn-suite
 
 # Install Node.js and npm
 sudo apt install -y nodejs
-sudo npm install -g npm
+sudo npm install -g npm wappalyzer wscat
 
 # Install Docker CE
 sudo apt install -y docker-ce docker-ce-cli containerd.io
@@ -53,8 +53,12 @@ searchsploit -u
 git_clone_to_opt() {
   local REPO_URL="$1"
   local DEST_DIR="/opt/${2:-$(basename $REPO_URL .git)}"
-  echo "Cloning $REPO_URL to $DEST_DIR"
-  sudo git clone "$REPO_URL" "$DEST_DIR"
+  if [ ! -d "$DEST_DIR" ]; then
+    echo "Cloning $REPO_URL to $DEST_DIR"
+    sudo git clone "$REPO_URL" "$DEST_DIR" || { echo "Failed to clone $REPO_URL"; exit 1; }
+  else
+    echo "$DEST_DIR already exists, skipping..."
+  fi
 }
 
 # Install tools
@@ -114,8 +118,9 @@ TOOLS=(
 )
 
 for TOOL in "${TOOLS[@]}"; do
-  git_clone_to_opt $TOOL
+  git_clone_to_opt $TOOL &
 done
+wait
 
 # Additional steps for specific tools
 cd /opt/autorecon
@@ -128,9 +133,6 @@ sudo ln -s nmapAutomator.sh /usr/local/bin/nmapAutomator
 cd /opt/3lckon
 chmod +x install_tools.sh
 ./install_tools.sh
-sudo apt install -y jq nmap phantomjs npm chromium parallel
-pip3 install npm
-npm i -g wappalyzer wscat
 
 # Docker setup
 echo "Setting up Docker containers..."
@@ -150,6 +152,29 @@ echo "Creating symbolic links"
 ln -s /opt/ ~/Desktop/opt
 ln -s /opt/_not_installed ~/Desktop/opt/_not_installed
 
+# Create shortcuts for additional documents
+echo "Creating shortcuts for additional documents"
+DOCUMENTS=(
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/htop.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/searchsploit.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/tree.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/update.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/bbot.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/bashtop.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/autopwn-suite.sh"
+  "https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/Desktop/name-that-hash.sh"
+)
+
+for DOC in "${DOCUMENTS[@]}"; do
+  wget -P ~/Desktop "$DOC"
+done
+
+# Download wallpapers folder to Desktop
+echo "Downloading Wallpapers folder"
+git clone https://github.com/ryanmrestivo/kali-setup.git /tmp/kali-setup
+cp -r /tmp/kali-setup/Wallpapers ~/Desktop/
+rm -rf /tmp/kali-setup
+
 # Set permissions
 echo "Setting permissions for /opt"
 sudo chmod -R 755 /opt
@@ -166,9 +191,11 @@ echo "Removing unnecessary directories"
 sudo rm -rf /opt/google /opt/requests
 
 # Reboot prompt
-echo "Setup complete. The system will reboot in 60 seconds."
-sleep 60
-sudo reboot
+echo "Setup complete. Do you want to reboot now? (y/n)"
+read -r REBOOT
+if [[ "$REBOOT" == "y" ]]; then
+  sudo reboot
+fi
 
 #
 # Additional Notes for Specific Tools
