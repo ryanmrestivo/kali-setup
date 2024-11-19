@@ -19,33 +19,6 @@ sudo apt update -y && sudo apt upgrade -y
 echo "Installing necessary tools..."
 sudo apt install -y git perl tree htop gdu python3-pip curl wget docker.io npm jq nmap phantomjs chromium parallel
 
-# Install Go
-GO_VERSION="1.21.0"
-echo "Installing Go version $GO_VERSION"
-curl -LO https://golang.org/dl/go$GO_VERSION.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go$GO_VERSION.linux-amd64.tar.gz
-rm go$GO_VERSION.linux-amd64.tar.gz
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
-
-# Upgrade pip and install Python packages
-python3 -m pip install --upgrade pip
-pip install pipenv name-that-hash search-that-hash mitmproxy autopwn-suite
-
-# Install Node.js and npm
-echo "Installing Node.js and npm..."
-sudo apt install -y nodejs
-sudo npm install -g npm wappalyzer wscat
-
-# Install Docker CE
-sudo apt install -y docker-ce docker-ce-cli containerd.io
-sudo systemctl enable docker --now
-
-# Install exploitdb (searchsploit)
-echo "Installing searchsploit"
-sudo apt install -y exploitdb
-searchsploit -u
-
 # Download bookmarks from tl-osint
 echo "Downloading bookmarks from tl-osint"
 wget -O ~/Desktop/bookmarks.html https://raw.githubusercontent.com/tracelabs/tlosint-live/master/bookmarks.html
@@ -81,6 +54,33 @@ fi
 # Set permissions
 echo "Setting permissions for /opt"
 sudo chmod -R 755 /opt
+
+# Install Go
+GO_VERSION="1.21.0"
+echo "Installing Go version $GO_VERSION"
+curl -LO https://golang.org/dl/go$GO_VERSION.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go$GO_VERSION.linux-amd64.tar.gz
+rm go$GO_VERSION.linux-amd64.tar.gz
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+# Upgrade pip and install Python packages
+python3 -m pip install --upgrade pip
+pip install pipenv name-that-hash search-that-hash mitmproxy autopwn-suite
+
+# Install Node.js and npm
+echo "Installing Node.js and npm..."
+sudo apt install -y nodejs
+sudo npm install -g npm wappalyzer wscat
+
+# Install Docker CE
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+sudo systemctl enable docker --now
+
+# Install exploitdb (searchsploit)
+echo "Installing searchsploit"
+sudo apt install -y exploitdb
+searchsploit -u
 
 # Function to clone GitHub repos to /opt
 git_clone_to_opt() {
