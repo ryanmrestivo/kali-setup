@@ -8,11 +8,9 @@ This repository contains a script designed to automate the setup of Kali Linux w
 
 ## Installation
 
-1. Open terminal as root.
-2. Install pip by running the following command:
-	python install get-pip.py
-3. Download and execute the setup script with the following command:
-	curl -sSL https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/kali-setup.sh | bash
+curl -sSL https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/kali-setup.sh -o kali-setup.sh
+chmod +x kali-setup.sh
+sudo ./kali-setup.sh
 
 ## Usage
 
