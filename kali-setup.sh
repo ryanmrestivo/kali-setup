@@ -180,5 +180,9 @@ sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y
 echo "Removing unnecessary directories"
 sudo rm -rf /opt/google /opt/requests
 
+# Remove the script from Desktop after execution
+echo "Deleting the script from Desktop"
+rm -- "$0"
+
 # Additional Notes for Specific Tools
 # Refer to the documentation comments for additional manual steps where necessary.
