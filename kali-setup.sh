@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Ensure Desktop directory exists for current user
+mkdir -p ~/Desktop
+
 # Kali Setup Script
 # Ensure this script has executable permissions: chmod +x kali-setup.sh
 
@@ -42,6 +45,42 @@ sudo systemctl enable docker --now
 echo "Installing searchsploit"
 sudo apt install -y exploitdb
 searchsploit -u
+
+# Download bookmarks from tl-osint
+echo "Downloading bookmarks from tl-osint"
+wget -O ~/Desktop/bookmarks.html https://raw.githubusercontent.com/tracelabs/tlosint-live/master/bookmarks.html
+
+# Create symbolic link to /opt
+echo "Creating symbolic link to /opt on Desktop"
+if [ -d "/opt" ]; then
+  ln -sf /opt ~/Desktop/opt
+else
+  echo "/opt directory does not exist, skipping link creation..."
+fi
+
+# Clone and move shortcuts for additional documents
+echo "Cloning kali-setup repository"
+REPO_DIR="$(pwd)/kali-setup"
+if git clone https://github.com/ryanmrestivo/kali-setup.git "$REPO_DIR"; then
+  echo "Moving additional documents to Desktop"
+  if [ -d "$REPO_DIR/scripts" ]; then
+    mv "$REPO_DIR/scripts"/* ~/Desktop/
+  else
+    echo "No scripts directory found in kali-setup repository"
+  fi
+  if [ -d "$REPO_DIR/Wallpapers" ]; then
+    mv "$REPO_DIR/Wallpapers" ~/Desktop/
+  else
+    echo "No Wallpapers directory found in kali-setup repository"
+  fi
+  rm -rf "$REPO_DIR"
+else
+  echo "Failed to clone kali-setup repository"
+fi
+
+# Set permissions
+echo "Setting permissions for /opt"
+sudo chmod -R 755 /opt
 
 # Function to clone GitHub repos to /opt
 git_clone_to_opt() {
@@ -122,44 +161,6 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v portainer_data:/data \
     portainer/portainer-ce:latest
-
-# Download bookmarks from tl-osint
-echo "Downloading bookmarks from tl-osint"
-mkdir -p ~/Desktop
-echo "Downloading bookmarks from tl-osint"
-wget -O ~/Desktop/bookmarks.html https://raw.githubusercontent.com/tracelabs/tlosint-live/master/bookmarks.html
-
-# Create symbolic link to /opt
-echo "Creating symbolic link to /opt on Desktop"
-if [ -d "/opt" ]; then
-  ln -sf /opt ~/Desktop/opt
-else
-  echo "/opt directory does not exist, skipping link creation..."
-fi
-
-# Clone and move shortcuts for additional documents
-echo "Cloning kali-setup repository"
-REPO_DIR="$(pwd)/kali-setup"
-if git clone https://github.com/ryanmrestivo/kali-setup.git "$REPO_DIR"; then
-  echo "Moving additional documents to Desktop"
-  if [ -d "$REPO_DIR/scripts" ]; then
-    mv "$REPO_DIR/scripts"/* ~/Desktop/
-  else
-    echo "No scripts directory found in kali-setup repository"
-  fi
-  if [ -d "$REPO_DIR/Wallpapers" ]; then
-    mv "$REPO_DIR/Wallpapers" ~/Desktop/
-  else
-    echo "No Wallpapers directory found in kali-setup repository"
-  fi
-  rm -rf "$REPO_DIR"
-else
-  echo "Failed to clone kali-setup repository"
-fi
-
-# Set permissions
-echo "Setting permissions for /opt"
-sudo chmod -R 755 /opt
 
 # Cleanup
 echo "Cleaning up and running final update checks"
