@@ -52,7 +52,7 @@ fi
 # Clone and move shortcuts for additional documents
 echo "[9/16] Cloning kali-setup repository"
 REPO_DIR="$(pwd)/kali-setup"
-if git clone https://github.com/ryanmrestivo/kali-setup.git "$REPO_DIR"; then
+if git clone --recurse-submodules https://github.com/ryanmrestivo/kali-setup.git "$REPO_DIR"; then
   echo "Successfully cloned kali-setup repository"
   echo "Moving additional documents to Desktop"
   if [ -d "$REPO_DIR/scripts" ]; then
@@ -63,7 +63,7 @@ if git clone https://github.com/ryanmrestivo/kali-setup.git "$REPO_DIR"; then
   if [ -d "$REPO_DIR/Wallpapers" ]; then
     mv "$REPO_DIR/Wallpapers" ~/Desktop/
   else
-    echo "No Wallpapers directory found in kali-setup repository"
+    echo "No Wallpapers directory found in kali-setup repository, please check if the repository has been cloned with all submodules."
   fi
 else
   echo "Failed to clone kali-setup repository"
