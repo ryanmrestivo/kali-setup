@@ -3,24 +3,17 @@
 # Kali Setup Script
 # Ensure this script has executable permissions: chmod +x kali-setup.sh
 
-# Setting up Global Theme Instructions (Optional Step)
-# - Go to Global Theme -> Get New Global Themes -> Sort by Rating -> Sweet KDE
-
-# Prevent Linux from going to sleep (Optional Step)
-# - Power Manager -> Display -> Slide everything left to "never"
-
-# System Update and Setup
-echo "Starting System Update & Setup..."
-
 # Setting debconf to non-interactive mode to avoid prompts during installation
-echo '* libraries/restart-without-asking boolean true' | sudo debconf-set-selections
+echo "* libraries/restart-without-asking boolean true" | sudo debconf-set-selections
 export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 
-# Update package list and upgrade installed packages
+# System Update and Setup
+echo "Starting System Update & Setup..."
 sudo apt update -y && sudo apt upgrade -y
 
 # Install necessary tools and dependencies
+echo "Installing necessary tools..."
 sudo apt install -y git perl tree htop gdu python3-pip curl wget docker.io npm jq nmap phantomjs chromium parallel
 
 # Install Go
@@ -37,6 +30,7 @@ python3 -m pip install --upgrade pip
 pip install pipenv name-that-hash search-that-hash mitmproxy autopwn-suite
 
 # Install Node.js and npm
+echo "Installing Node.js and npm..."
 sudo apt install -y nodejs
 sudo npm install -g npm wappalyzer wscat
 
@@ -157,9 +151,6 @@ fi
 echo "Setting permissions for /opt"
 sudo chmod -R 755 /opt
 
-# Docker service setup
-sudo systemctl enable docker --now
-
 # Cleanup
 echo "Cleaning up and running final update checks"
 sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y
@@ -168,33 +159,5 @@ sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y
 echo "Removing unnecessary directories"
 sudo rm -rf /opt/google /opt/requests
 
-#
 # Additional Notes for Specific Tools
-#
-# CHAOS
-# Run:
-# PORT=8080 DATABASE_NAME=chaos go run cmd/chaos/main.go
-# /opt/CHAOS/client/main.go
-# After running, go to http://localhost:8080 and login with the default username: ***admin*** and password: ***changeme***.
-
-# venom
-# Manual steps might be needed here. Check the comments in the original script.
-
-# rengine
-# Edit the .env file, please make sure to change the password for PostgreSQL POSTGRES_PASSWORD!
-# sudo ./install.sh
-# reNgine can be accessed from https://127.0.0.1
-
-# Havoc
-# Build the client Binary (From Havoc Root Directory):
-# make client-build
-# Run the client:
-# ./havoc client
-
-# Koadic
-# Run:
-# ./koadic
-
-# mosquito (resource_files)
-# Find and make scripts executable:
-# cd mosquito && find ./ -name "*.sh" -exec chmod +x {} \;
+# Refer to the documentation comments for additional manual steps where necessary.
