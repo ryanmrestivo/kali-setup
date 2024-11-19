@@ -12,19 +12,19 @@ export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 
 # System Update and Setup
-echo "Starting System Update & Setup..."
+echo "[1/14] Starting System Update & Setup..."
 sudo apt update -y && sudo apt upgrade -y
 
 # Install necessary tools and dependencies
-echo "Installing necessary tools..."
+echo "[2/14] Installing necessary tools..."
 sudo apt install -y git perl tree htop gdu python3-pip curl wget docker.io npm jq nmap phantomjs chromium parallel
 
 # Download bookmarks from tl-osint
-echo "Downloading bookmarks from tl-osint"
+echo "[3/14] Downloading bookmarks from tl-osint"
 wget -O ~/Desktop/bookmarks.html https://raw.githubusercontent.com/tracelabs/tlosint-live/master/bookmarks.html
 
 # Create symbolic link to /opt
-echo "Creating symbolic link to /opt on Desktop"
+echo "[4/14] Creating symbolic link to /opt on Desktop"
 if [ -d "/opt" ]; then
   ln -sf /opt ~/Desktop/opt
 else
@@ -32,9 +32,10 @@ else
 fi
 
 # Clone and move shortcuts for additional documents
-echo "Cloning kali-setup repository"
+echo "[5/14] Cloning kali-setup repository"
 REPO_DIR="$(pwd)/kali-setup"
 if git clone https://github.com/ryanmrestivo/kali-setup.git "$REPO_DIR"; then
+  echo "Successfully cloned kali-setup repository"
   echo "Moving additional documents to Desktop"
   if [ -d "$REPO_DIR/scripts" ]; then
     mv "$REPO_DIR/scripts"/* ~/Desktop/
@@ -46,18 +47,25 @@ if git clone https://github.com/ryanmrestivo/kali-setup.git "$REPO_DIR"; then
   else
     echo "No Wallpapers directory found in kali-setup repository"
   fi
-  rm -rf "$REPO_DIR"
 else
   echo "Failed to clone kali-setup repository"
 fi
 
+# Verify if kali-setup repository exists
+echo "Verifying kali-setup repository..."
+if [ -d "$REPO_DIR" ]; then
+  echo "kali-setup repository is present at $REPO_DIR"
+else
+  echo "kali-setup repository is missing, please check the cloning process."
+fi
+
 # Set permissions
-echo "Setting permissions for /opt"
+echo "[6/14] Setting permissions for /opt"
 sudo chmod -R 755 /opt
 
 # Install Go
 GO_VERSION="1.21.0"
-echo "Installing Go version $GO_VERSION"
+echo "[7/14] Installing Go version $GO_VERSION"
 curl -LO https://golang.org/dl/go$GO_VERSION.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go$GO_VERSION.linux-amd64.tar.gz
 rm go$GO_VERSION.linux-amd64.tar.gz
@@ -65,24 +73,27 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # Upgrade pip and install Python packages
+echo "[8/14] Upgrading pip and installing Python packages"
 python3 -m pip install --upgrade pip
 pip install pipenv name-that-hash search-that-hash mitmproxy autopwn-suite
 
 # Install Node.js and npm
-echo "Installing Node.js and npm..."
+echo "[9/14] Installing Node.js and npm..."
 sudo apt install -y nodejs
 sudo npm install -g npm wappalyzer wscat
 
 # Install Docker CE
+echo "[10/14] Installing Docker CE"
 sudo apt install -y docker-ce docker-ce-cli containerd.io
 sudo systemctl enable docker --now
 
 # Install exploitdb (searchsploit)
-echo "Installing searchsploit"
+echo "[11/14] Installing searchsploit"
 sudo apt install -y exploitdb
 searchsploit -u
 
-# Function to clone GitHub repos to /opt
+# Install tools
+echo "[12/14] Cloning GitHub repositories to /opt"
 git_clone_to_opt() {
   local REPO_URL="$1"
   local DEST_DIR="/opt/${2:-$(basename $REPO_URL .git)}"
@@ -94,7 +105,6 @@ git_clone_to_opt() {
   fi
 }
 
-# Install tools
 TOOLS=(
   "https://github.com/Tib3rius/AutoRecon beta"
   "https://github.com/21y4d/nmapAutomator"
@@ -154,7 +164,7 @@ done
 wait
 
 # Docker setup
-echo "Setting up Docker containers..."
+echo "[13/14] Setting up Docker containers..."
 docker volume create portainer_data
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
     --restart=always \
@@ -163,7 +173,7 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
     portainer/portainer-ce:latest
 
 # Cleanup
-echo "Cleaning up and running final update checks"
+echo "[14/14] Cleaning up and running final update checks"
 sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y
 
 # Removing unnecessary directories
