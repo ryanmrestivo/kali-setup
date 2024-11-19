@@ -125,6 +125,8 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
 
 # Download bookmarks from tl-osint
 echo "Downloading bookmarks from tl-osint"
+mkdir -p ~/Desktop
+echo "Downloading bookmarks from tl-osint"
 wget -O ~/Desktop/bookmarks.html https://raw.githubusercontent.com/tracelabs/tlosint-live/master/bookmarks.html
 
 # Create symbolic link to /opt
@@ -140,8 +142,16 @@ echo "Cloning kali-setup repository"
 REPO_DIR="$(pwd)/kali-setup"
 if git clone https://github.com/ryanmrestivo/kali-setup.git "$REPO_DIR"; then
   echo "Moving additional documents to Desktop"
-  mv "$REPO_DIR/scripts"/* ~/Desktop/
-  mv "$REPO_DIR/Wallpapers" ~/Desktop/
+  if [ -d "$REPO_DIR/scripts" ]; then
+    mv "$REPO_DIR/scripts"/* ~/Desktop/
+  else
+    echo "No scripts directory found in kali-setup repository"
+  fi
+  if [ -d "$REPO_DIR/Wallpapers" ]; then
+    mv "$REPO_DIR/Wallpapers" ~/Desktop/
+  else
+    echo "No Wallpapers directory found in kali-setup repository"
+  fi
   rm -rf "$REPO_DIR"
 else
   echo "Failed to clone kali-setup repository"
