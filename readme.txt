@@ -4,6 +4,7 @@ This repository contains a script designed to automate the setup of Kali Linux w
 
 #TODO
 Fix bbot, htop, bashtop, desktop, wallpapers
+https://github.com/edoardottt/takeover
 
 ## Prerequisites
 
