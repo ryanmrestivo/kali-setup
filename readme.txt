@@ -2,6 +2,9 @@
 
 This repository contains a script designed to automate the setup of Kali Linux with essential tools and configurations. It's born out of frustration with existing repositories and aims to provide a more reliable and comprehensive setup for Kali Linux users.
 
+#TODO
+Fix bbot, htop, bashtop, desktop, wallpapers
+
 ## Prerequisites
 
 - Root access
