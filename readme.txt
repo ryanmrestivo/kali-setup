@@ -32,6 +32,14 @@ If you have issues because of missing pip:
 - If you encounter an error with the update script, type `dos2unix [filename]` in the terminal.
 - If you receive notifications from Metasploit regarding a minimal distribution, type `sudo tasksel` and use the space bar to add/remove packages.
 
+## Considerations
+
+When running downloaded packages, use a virtual enviornment.
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python example.py -example-commands
+
 ## Contributing
 
 Contributions are welcome!
