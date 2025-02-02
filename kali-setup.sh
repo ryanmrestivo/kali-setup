@@ -176,7 +176,13 @@ for TOOL in "${TOOLS[@]}"; do
 done
 wait
 
+# install nuclei
+echo installing nuclei
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+
+echo installing osmedeus
+# install osmedeus
+go install -v github.com/j3ssie/osmedeus@latest
 
 # Docker setup
 echo "Setting up Docker containers..."
@@ -204,3 +210,6 @@ rm -- "$0"
 
 # Making scripts on Desktop executable
 chmod +x ~/Desktop/*
+
+# python3 -m venv oneforall_env
+# source oneforall_env/bin/activate
