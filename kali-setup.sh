@@ -41,13 +41,8 @@ sudo apt install -y bleachbit
 echo "[7/16] Downloading bookmarks from tl-osint"
 wget -O ~/Desktop/bookmarks.html https://raw.githubusercontent.com/tracelabs/tlosint-live/master/bookmarks.html
 
-# Create symbolic link to /opt
 echo "[8/16] Creating symbolic link to /opt on Desktop"
-if [ -d "/opt" ]; then
-  ln -sf /opt ~/Desktop/opt
-else
-  echo "/opt directory does not exist, skipping link creation..."
-fi
+ln -sf /opt ~/Desktop/opt
 
 # Clone and move shortcuts for additional documents
 echo "[9/16] Cloning kali-setup repository"
@@ -180,6 +175,8 @@ for TOOL in "${TOOLS[@]}"; do
   git_clone_to_opt $TOOL &
 done
 wait
+
+go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 
 # Docker setup
 echo "Setting up Docker containers..."
