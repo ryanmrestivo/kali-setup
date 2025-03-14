@@ -169,6 +169,7 @@ TOOLS=(
   "https://github.com/g0tmi1k/msfpc"
   "https://github.com/tess-ss/recon-ninja"
   "https://github.com/r00t-3xp10it/resource_files"
+  "https://github.com/0x5ubt13/autoenum"
 )
 
 for TOOL in "${TOOLS[@]}"; do
