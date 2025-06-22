@@ -90,10 +90,11 @@ echo "[12/16] Upgrading pip and installing Python packages"
 python3 -m pip install --upgrade pip
 pip install pipenv name-that-hash mitmproxy autopwn-suite
 
-# Install Node.js and npm
+# Install Node.js, npm, nodesub
 echo "[13/16] Installing Node.js and npm..."
 sudo apt install -y nodejs
 sudo npm install -g npm wappalyzer wscat
+sudo npm install -g nodesub
 
 # Install Docker CE
 echo "[14/16] Installing Docker CE"
