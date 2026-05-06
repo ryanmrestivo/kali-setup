@@ -103,7 +103,15 @@ create_launcher() {
     local CMD=$2
     local ICON=$3
     local CATEGORY=$4
-    local TARGET="$DESKTOP_DIR/$NAME.desktop"
+    local SUBDIR=$5
+    
+    local TARGET_DIR="$DESKTOP_DIR"
+    if [[ -n "$SUBDIR" ]]; then
+        TARGET_DIR="$DESKTOP_DIR/$SUBDIR"
+        mkdir -p "$TARGET_DIR"
+        chown "$REAL_USER:$REAL_USER" "$TARGET_DIR"
+    fi
+    local TARGET="$TARGET_DIR/$NAME.desktop"
 
     # Check if command exists or is a valid file
     local BIN_NAME=$(echo $CMD | awk '{print $1}')
@@ -217,13 +225,13 @@ install_base() {
     if [ -n "$SUDO_USER" ]; then sudo usermod -aG docker "$SUDO_USER"; fi
 
     # Create Launchers for Base Tools
-    create_launcher "Btop" "btop" "btop" "System;Monitor"
-    create_launcher "Bashtop" "bashtop" "btop" "System;Monitor"
-    create_launcher "Chromium" "chromium" "chromium" "Network;WebBrowser"
-    create_launcher "BleachBit" "bleachbit" "bleachbit" "System;Settings"
-    create_launcher "Burp Suite" "burpsuite" "burpsuite" "Network;Exploitation"
-    create_launcher "Wireshark" "wireshark" "wireshark" "Network;Sniffing"
-    create_launcher "Metasploit" "msfconsole" "kali-menu" "Network;Exploitation"
+    create_launcher "Btop" "btop" "btop" "System;Monitor" "Utilities"
+    create_launcher "Bashtop" "bashtop" "btop" "System;Monitor" "Utilities"
+    create_launcher "Chromium" "chromium" "chromium" "Network;WebBrowser" "Utilities"
+    create_launcher "BleachBit" "bleachbit" "bleachbit" "System;Settings" "Utilities"
+    create_launcher "Burp Suite" "burpsuite" "burpsuite" "Network;Exploitation" "Utilities"
+    create_launcher "Wireshark" "wireshark" "wireshark" "Network;Sniffing" "Utilities"
+    create_launcher "Metasploit" "msfconsole" "kali-menu" "Network;Exploitation" "Utilities"
 }
 
 install_python_env() {
@@ -283,7 +291,7 @@ install_heavy_automation() {
     
     sudo chown -R "$REAL_USER:$REAL_USER" "$OPT_DIR"
     # Create Launchers
-    create_launcher "reNgine" "chromium http://localhost:8000" "kali-menu" "Network;Recon"
+    create_launcher "reNgine" "chromium http://localhost:8000" "kali-menu" "Network;Recon" "Recon"
 }
 
 install_rev_eng() {
@@ -304,11 +312,15 @@ install_rev_eng() {
     fi
     
     # Vuln Tools
-    if [[ ! -d "/opt/GPT_Vuln-analyzer" ]]; then
+    if [[ -d "/opt/GPT_Vuln-analyzer" ]]; then
         sudo git clone --depth 1 https://github.com/codingo/GPT_Vuln-analyzer.git "/opt/GPT_Vuln-analyzer" 2>/dev/null
     fi
     sudo chown -R "$REAL_USER:$REAL_USER" "$OPT_DIR"
-}
+
+    # Create Launchers
+    create_launcher "Ghidra" "ghidra" "ghidra" "Development;ReverseEngineering" "Rev-Eng"
+    create_launcher "GPT Vuln-analyzer" "python3 /opt/GPT_Vuln-analyzer/gpt_vuln.py" "kali-menu" "Network;Vulnerability" "Rev-Eng"
+    }
 
 install_oscp() {
     log "Installing OSCP Approved Tools..."
@@ -352,11 +364,11 @@ install_oscp() {
     sudo chown -R "$REAL_USER:$REAL_USER" "$OPT_DIR"
 
     # Create Launchers
-    create_launcher "NetExec" "$USER_HOME/.local/bin/nxc" "kali-menu" "Network;Exploitation"
-    create_launcher "BloodHound" "bloodhound" "bloodhound" "Network;Exploitation"
-    create_launcher "Evil-WinRM" "evil-winrm" "kali-menu" "Network;Exploitation"
-    create_launcher "Responder" "responder -I eth0" "kali-menu" "Network;Exploitation"
-    create_launcher "AutoRecon" "$USER_HOME/.local/bin/autorecon" "kali-menu" "Network;Recon"
+    create_launcher "NetExec" "$USER_HOME/.local/bin/nxc" "kali-menu" "Network;Exploitation" "OSCP"
+    create_launcher "BloodHound" "bloodhound" "bloodhound" "Network;Exploitation" "OSCP"
+    create_launcher "Evil-WinRM" "evil-winrm" "kali-menu" "Network;Exploitation" "OSCP"
+    create_launcher "Responder" "responder -I eth0" "kali-menu" "Network;Exploitation" "OSCP"
+    create_launcher "AutoRecon" "$USER_HOME/.local/bin/autorecon" "kali-menu" "Network;Recon" "OSCP"
 }
 
 install_vuln_scanners() {
@@ -502,8 +514,9 @@ install_c2_frameworks() {
 
     sudo chown -R "$REAL_USER:$REAL_USER" "$OPT_DIR"
     # Create Launchers
-    create_launcher "Empire" "powershell-empire" "kali-menu" "Network;Exploitation"
-    create_launcher "Starkiller" "starkiller" "kali-menu" "Network;Exploitation"
+    create_launcher "Empire" "powershell-empire" "kali-menu" "Network;Exploitation" "C2"
+    create_launcher "Starkiller" "starkiller" "kali-menu" "Network;Exploitation" "C2"
+    create_launcher "Havoc" "/opt/Havoc/havoc" "kali-menu" "Network;Exploitation" "C2"
 }
 
 # --- Pro Operational Modules ---
