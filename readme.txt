@@ -1,49 +1,47 @@
-# Kali Linux Setup Script
+# Kali Linux Setup (Ultimate Version)
 
-This repository contains a script designed to automate the setup of Kali Linux with essential tools and configurations. It's born out of frustration with existing repositories and aims to provide a more reliable and comprehensive setup for Kali Linux users.
+An automated, modular, and menu-driven setup tool for Kali Linux. Designed for both general penetration testing and strict OSCP exam compliance.
 
-#TODO
-Fix bbot, htop, bashtop, desktop, wallpapers
-https://github.com/edoardottt/takeover
-
-## Prerequisites
-
-- Root access
+## Key Features
+- **TUI Menu:** Easy-to-use interface powered by `whiptail`.
+- **Modular Installation:** Choose between a full setup or an OSCP-only environment.
+- **Dynamic Desktop Launchers:** Automatically generates clickable, trusted desktop icons for all major tools.
+- **Pentest Aliases:** Injects high-productivity aliases (e.g., `myip`, `listening`, `nxc`) into ZSH/Bash.
+- **Global Command:** Access the tool from anywhere by simply typing `kali-setup`.
+- **Integrated Update System:** Keeps system packages, pipx tools, Go binaries, and GitHub repos current.
 
 ## Installation
 
-curl -sSL https://raw.githubusercontent.com/ryanmrestivo/kali-setup/main/kali-setup.sh -o kali-setup.sh
-chmod +x kali-setup.sh
+```bash
+git clone https://github.com/ryanmrestivo/kali-setup.git
+cd kali-setup
+chmod +x kali-setup.sh update.sh
 sudo ./kali-setup.sh
-
-If you have issues because of missing pip:
-1. Open terminal as root.
-2. Install pip by running the following command:
-	python install get-pip.py
+```
 
 ## Usage
 
-1. Once installed, use the 'tree' command to list files in a directory in a tree-like structure.
-2. Use 'htop' for an interactive text-mode process viewer.
-3. ... (additional usage instructions)
+After the first run, you can simply type:
+```bash
+kali-setup
+```
+This will bring up the main menu with the following options:
+1. **Full Standard Setup:** Installs everything (APT, Python, Go, Docker, GitHub tools).
+2. **OSCP-Only Setup:** Installs only exam-compliant tools.
+3. **Update All Tools:** Runs the comprehensive update suite.
+4. **Install Sliver C2:** Quick installation of the Sliver C2 framework.
+5. **Create Desktop Icons Only:** Refreshes your desktop shortcuts.
+6. **Cleanup System:** Removes unnecessary packages and clears cache.
+
+## Tool Categories
+- **Monitors:** Btop, Htop (with desktop icons).
+- **AD & Lateral Movement:** NetExec, BloodHound, Impacket.
+- **Pivoting:** Ligolo-ng, Chisel.
+- **OSINT:** BBOT, Trace Labs bookmarks.
+- **Vulnerability Analysis:** Nuclei, SearchSploit.
 
 ## Troubleshooting
-
-- If you encounter an error with the update script, type `dos2unix [filename]` in the terminal.
-- If you receive notifications from Metasploit regarding a minimal distribution, type `sudo tasksel` and use the space bar to add/remove packages.
-
-## Considerations
-
-When running downloaded packages, use a virtual enviornment.
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python example.py -example-commands
+Check `kali-setup.log` for execution details. Ensure you run as root for full functionality.
 
 ## Contributing
-
-Contributions are welcome!
-
-## Contact
-
-For more information or support, please contact at my email on my GitHub profile page.
+Contributions are welcome! Please follow the modular function structure.
