@@ -430,7 +430,6 @@ install_legacy_tools() {
         "https://github.com/D4Vinci/Cuteit"
         "https://github.com/hacker-Xp/beta"
         "https://github.com/darkoperator/resource_files"
-        "https://github.com/everest-engineering/recon-ninja"
         "https://github.com/m4ll0k/Shennina"
         "https://github.com/TryCatchHCF/Cloakify"
     )
@@ -496,7 +495,7 @@ install_c2_frameworks() {
     
     # Batch Clone C2/Payload Tools
     local TOOLS=(
-        "https://github.com/zerosum0x0/koadic"
+        "https://github.com/ryanmrestivo/koadic"
         "https://github.com/Veil-Framework/Veil"
         "https://github.com/r00t-3xp10it/venom"
         "https://github.com/trustedsec/unicorn"
